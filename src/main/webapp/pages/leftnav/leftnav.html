@@ -1,0 +1,18 @@
+<wm-page layouttype="blank" columns="1" data-ng-controller="leftnavPageController" name="page1"> 
+    <wm-content name="content1"> 
+        <wm-list horizontalalign="left" name="leftnavigation"> 
+            <wm-list-item name="list_latestUpdate"> 
+                <wm-button caption="System Vitals" name="systemVitalsButton" iconname="dashboard" class="active"></wm-button> 
+            </wm-list-item> 
+            <wm-list-item name="list_inTheNews"> 
+                <wm-button caption="Sales Growth" name="salesGrowthButton" iconname="file" on-click="Variables.goToPage-SalesGrowth.invoke()"></wm-button> 
+            </wm-list-item> 
+            <wm-list-item name="list_share"> 
+                <wm-button caption="Reports &amp; Analytics" name="reportsButton" iconname="tags" on-click="goToPage-Reports"></wm-button> 
+            </wm-list-item> 
+            <wm-list-item name="list_help"> 
+                <wm-button caption="Logout" name="logoutButton" iconname="log-out" on-click="Variables.logoutVariable.invoke()"></wm-button> 
+            </wm-list-item> 
+        </wm-list> 
+    </wm-content> 
+</wm-page>

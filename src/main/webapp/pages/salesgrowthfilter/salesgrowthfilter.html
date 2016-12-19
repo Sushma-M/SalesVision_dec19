@@ -1,0 +1,8 @@
+<wm-partial data-ng-controller="salesgrowthfilterPageController" name="partial1" class="dashboard-filter" type="left-panel"> 
+    <wm-composite widget="select" name="composite1"> 
+        <wm-label class="col-md-4" caption="Channel" name="label1"></wm-label> 
+        <wm-select name="channelFilter" placeholder="Select Channel" width="12em" dataset="bind:Variables.channelsList.dataSet" datafield="dataValue" displayfield="name" datavalue="2"></wm-select> 
+    </wm-composite> 
+    <wm-button name="button2" caption="Reset" iconname="remove-sign" on-click="clear()" class="btn-secondary"></wm-button> 
+    <wm-button name="button1" caption="Filter" iconname="filter" on-click="filter()" class="btn-primary"></wm-button> 
+</wm-partial>

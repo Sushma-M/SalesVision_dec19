@@ -1,0 +1,68 @@
+<wm-page data-ng-controller="MainPageController" name="page1" layouttype="two-column" columns="2"> 
+    <wm-header name="header" content="header" height="auto"></wm-header> 
+    <wm-top-nav name="top-nav" content="topnav"></wm-top-nav> 
+    <wm-content name="content1"> 
+        <wm-row name="row1"> 
+            <wm-left-panel name="leftpanel" content="systemvitalsfilter" contentwidth="2" on-swipeleft="leftpanelSwipeleft($event, $scope)"></wm-left-panel> 
+            <wm-column class="app-content-column" name="mainContent" columnwidth="12" paddingleft="15" paddingright="15"> 
+                <wm-layoutgrid name="layoutgrid1" columns="3" height="auto" rows="3"> 
+                    <wm-gridrow name="gridrow2"> 
+                        <wm-gridcolumn name="gridcolumn1" columnwidth="6" paddingleft="1" paddingright="1" paddingtop="1" paddingbottom="1" paddingunit="em"> 
+                            <wm-label caption="Weekly Sales" name="label4" color="#929292" width="100%"></wm-label> 
+                            <wm-button class="btn-default" caption="Button" type="button" name="button1" on-click="button1Click($event, $scope)" show="false"></wm-button> 
+                            <wm-chart type="Bar" name="weeklySales" theme="Retro" height="360" yaxislabel="Sales" xaxislabel="Week" dataset="bind:Variables.SalesdbChannelsData.dataSet" xaxisdatakey="name" yaxisdatakey="id"></wm-chart> 
+                        </wm-gridcolumn> 
+                        <wm-gridcolumn name="gridcolumn2" columnwidth="3" paddingleft="1" paddingright="1" paddingtop="1" paddingbottom="1" paddingunit="em"> 
+                            <wm-label caption="Leads" name="label4" color="#929292" width="100%"></wm-label> 
+                            <wm-chart type="Line" name="weeklyLeads" theme="Annabelle" height="160" yaxisdatakey="LEADS" yaxislabel="Leads" xaxisdatakey="WEEK" xaxislabel="Week" dataset="bind:Variables.weeklyLeads.dataSet.content" offsetright="20" offsettop="0" offsetleft="30" offsetbottom="50"></wm-chart> 
+                            <wm-label caption="Follow-ups" name="label4" color="#929292" width="100%" marginunit="em" margintop="1"></wm-label> 
+                            <wm-chart type="Line" name="weeklyFollowUps" theme="Retro" height="160" yaxisdatakey="FOLLOWUPS" yaxislabel="Follow Ups" xaxisdatakey="WEEK" xaxislabel="Week" dataset="bind:Variables.weeklyFollowUps.dataSet.content" offsetright="20" offsettop="0" offsetleft="30" offsetbottom="50"></wm-chart> 
+                        </wm-gridcolumn> 
+                        <wm-gridcolumn name="gridcolumn10" columnwidth="3" paddingleft="1" paddingright="1" paddingtop="1" paddingbottom="1" paddingunit="em"> 
+                            <wm-label caption="Quotes" name="label4" color="#929292" width="100%"></wm-label> 
+                            <wm-chart type="Line" name="weeklyQuotes" theme="Azure" height="160" yaxisdatakey="QUOTES" yaxislabel="Quotes" xaxisdatakey="WEEK" xaxislabel="Week" dataset="bind:Variables.weeklyQuotes.dataSet.content" offsetright="20" offsettop="0" offsetleft="30" offsetbottom="50"></wm-chart> 
+                            <wm-label caption="Converted" name="label4" color="#929292" width="100%" marginunit="em" margintop="1"></wm-label> 
+                            <wm-chart type="Line" name="weeklyConverted" theme="Orient" height="160" yaxisdatakey="SALES" yaxislabel="Sales" xaxisdatakey="WEEK" xaxislabel="Week" dataset="bind:Variables.weeklyConverted.dataSet.content" offsetright="20" offsettop="0" offsetleft="40" offsetbottom="50"></wm-chart> 
+                        </wm-gridcolumn> 
+                    </wm-gridrow> 
+                    <wm-gridrow name="gridrow3"> 
+                        <wm-gridcolumn name="gridcolumn4" paddingleft="1" paddingright="1" paddingtop="1" paddingbottom="1" paddingunit="em"> 
+                            <wm-label caption="Channels" name="label4" color="#929292" width="100%"></wm-label> 
+                            <wm-chart type="Donut" name="salesByChannels" theme="Terrestrial" height="200" yaxisdatakey="PERCENT" xaxisdatakey="CHANNEL" dataset="bind:Variables.salesByChannels.dataSet.content" offsetright="10" offsettop="0" offsetleft="10" offsetbottom="15"></wm-chart> 
+                        </wm-gridcolumn> 
+                        <wm-gridcolumn name="gridcolumn5" paddingleft="1" paddingright="1" paddingtop="1" paddingbottom="1" paddingunit="em"> 
+                            <wm-label caption="Customers" name="label4" color="#929292" width="100%"></wm-label> 
+                            <wm-chart type="Donut" name="customersRatio" theme="Azure" height="200" yaxisdatakey="PERCENT" xaxisdatakey="TYPE" dataset="bind:Variables.customersRatio.dataSet.content" offsetright="10" offsettop="0" offsetleft="10" offsetbottom="10"></wm-chart> 
+                        </wm-gridcolumn> 
+                        <wm-gridcolumn name="gridcolumn11" paddingleft="1" paddingright="1" paddingtop="1" paddingbottom="1" paddingunit="em"> 
+                            <wm-label caption="Products++" name="label4" color="#929292" width="100%"></wm-label> 
+                            <wm-chart type="Bar" name="productsChart" theme="Terrestrial" height="200" yaxisdatakey="SALES" yaxislabel="Sales" xaxisdatakey="PRODUCT" xaxislabel="Products" dataset="bind:Variables.topTrendingProducts.dataSet.content" offsetright="20" offsettop="0" offsetleft="30" offsetbottom="50" tooltips="true" showlabels="true" backgroundgradient="linear-gradient(left, #feffff 10%,#7ECFFA 100%)"></wm-chart> 
+                        </wm-gridcolumn> 
+                    </wm-gridrow> 
+                </wm-layoutgrid> 
+                <wm-panel name="revenueHeatMapPanel" paddingleft="1" paddingright="1" paddingtop="1" paddingbottom="1" paddingunit="em"> 
+                    <wm-label caption="Revenue Heat Map" name="label4" color="#8E8E8E" width="100%"></wm-label> 
+                    <wm-panel class="app-chart" name="revenueHeatMap" width="100%" height="400"></wm-panel> 
+                </wm-panel> 
+                <wm-label name="label10" caption="bind:Variables.HrdbExecuteEmpCount.dataSet.content[$i].C1"></wm-label> 
+                <wm-livelist listclass="list-group" itemclass="list-group-item" name="livelist1" dataset="bind:Variables.HrdbEmployeeData.dataSet"> 
+                    <wm-listtemplate layout="panel" name="listtemplate1"> 
+                        <wm-panel class="panel-default" data-template-ctr="true" showheader="true" name="panel3"> 
+                            <wm-label width="100%" caption="bind:Variables.HrdbEmployeeData.dataSet.eid" name="label11"></wm-label> 
+                            <wm-label width="100%" caption="bind:Variables.HrdbEmployeeData.dataSet.firstname" name="label12"></wm-label> 
+                            <wm-label width="100%" caption="bind:Variables.HrdbEmployeeData.dataSet.lastname" name="label13"></wm-label> 
+                            <wm-label width="100%" caption="bind:Variables.HrdbEmployeeData.dataSet.street" name="label14"></wm-label> 
+                            <wm-label width="100%" caption="bind:Variables.HrdbEmployeeData.dataSet.city" name="label15"></wm-label> 
+                            <wm-label width="100%" caption="bind:Variables.HrdbEmployeeData.dataSet.state" name="label16"></wm-label> 
+                            <wm-label width="100%" caption="bind:Variables.HrdbEmployeeData.dataSet.zip" name="label17"></wm-label> 
+                            <wm-label width="100%" caption="bind:Variables.HrdbEmployeeData.dataSet.birthdate" name="label18"></wm-label> 
+                            <wm-label width="100%" caption="bind:Variables.HrdbEmployeeData.dataSet.picurl" name="label19"></wm-label> 
+                            <wm-label width="100%" caption="bind:Variables.HrdbEmployeeData.dataSet.twitterid" name="label20"></wm-label> 
+                        </wm-panel> 
+                    </wm-listtemplate> 
+                </wm-livelist> 
+            </wm-column> 
+        </wm-row> 
+    </wm-content> 
+    <wm-footer name="footer" content="footer"></wm-footer> 
+</wm-page>

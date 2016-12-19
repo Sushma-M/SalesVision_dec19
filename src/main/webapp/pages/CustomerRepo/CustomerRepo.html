@@ -1,0 +1,34 @@
+<wm-page data-ng-controller="CustomerRepoPageController" pagetitle="Customer Repo" name="page1"> 
+    <wm-header content="header" name="header1"></wm-header> 
+    <wm-top-nav content="topnav" name="top_nav1"></wm-top-nav> 
+    <wm-content name="content1"> 
+        <wm-page-content columnwidth="12" name="page_content1"> 
+            <wm-layoutgrid name="layoutgrid1"> 
+                <wm-gridrow name="gridrow1"> 
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn1"></wm-gridcolumn> 
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn2"></wm-gridcolumn> 
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn3"></wm-gridcolumn> 
+                </wm-gridrow> 
+                <wm-gridrow name="gridrow2"> 
+                    <wm-gridcolumn columnwidth="2" name="gridcolumn4"></wm-gridcolumn> 
+                    <wm-gridcolumn columnwidth="8" name="gridcolumn5"> 
+                        <wm-grid readonlygrid="true" title="CUSTOMERS LIST" dataset="bind:Variables.SalesdbCustomersData.dataSet" name="grid1" height="500" class="panel-default"> 
+                            <wm-grid-column binding="id" caption="Id" type="integer" backgroundcolor="" textcolor="" primary-key="true" generator="identity" readonly="true" col-class="" col-ng-class="" search-placeholder="Search" disable-inline-editing="false" is-related-pk="false" pcdisplay="true" mobiledisplay="true"></wm-grid-column> 
+                            <wm-grid-column binding="name" caption="Name" type="string" backgroundcolor="" textcolor="" primary-key="" readonly="true" col-class="" col-ng-class="" search-placeholder="Search" disable-inline-editing="false" is-related-pk="false" pcdisplay="true" mobiledisplay="true"></wm-grid-column> 
+                            <wm-grid-column binding="custom" caption="Push to SP" type="custom" widget-type="button" textalignment="center" backgroundcolor="" textcolor="" primary-key="" col-class="" col-ng-class="" search-placeholder="Search" disable-inline-editing="false" is-related-pk="false" pcdisplay="true" mobiledisplay="true" readonly="false"> 
+                                <wm-button caption="" show="true" class="btn-sm btn-primary" iconname="glyphicon glyphicon-cloud-upload" on-click="pushToSharePoint(row.getProperty('id'), row.getProperty('name'))" data-ng-class=""></wm-button> 
+                            </wm-grid-column> 
+                        </wm-grid> 
+                    </wm-gridcolumn> 
+                    <wm-gridcolumn columnwidth="2" name="gridcolumn6"></wm-gridcolumn> 
+                </wm-gridrow> 
+                <wm-gridrow name="gridrow3"> 
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn7"></wm-gridcolumn> 
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn8"></wm-gridcolumn> 
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn9"></wm-gridcolumn> 
+                </wm-gridrow> 
+            </wm-layoutgrid> 
+        </wm-page-content> 
+    </wm-content> 
+    <wm-footer content="footer" name="footer1"></wm-footer> 
+</wm-page>

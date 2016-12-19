@@ -1,0 +1,25 @@
+{
+	"methods": [{
+		"operationType": null,
+		"name": "executeQuery",
+		"parameters": [{
+			"name": "username",
+			"type": "java.lang.String"
+		}, {
+			"name": "password",
+			"type": "java.lang.String"
+		}, {
+			"name": "clientId",
+			"type": "java.lang.String"
+		}, {
+			"name": "clientSecret",
+			"type": "java.lang.String"
+		}, {
+			"name": "query",
+			"type": "java.lang.String"
+		}],
+		"returnType": "java.util.Map<java.lang.String,java.lang.Object>"
+	}],
+	"serviceURL": "SalesForceAPI.json",
+	"serviceType": "JSON-RPC"
+}

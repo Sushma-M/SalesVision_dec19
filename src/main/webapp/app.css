@@ -1,0 +1,10 @@
+.wm-app .app-grid-layout .app-grid-row .app-grid-column {
+    overflow: visible;
+}
+.wm-app .app-button-group .app-button {
+  opacity: 0.6;
+}
+.wm-app .app-button-group .app-button:focus,
+.wm-app .app-button-group .app-button:active {
+  opacity:1;
+}

@@ -1,0 +1,58 @@
+{
+  "username" : "sa",
+  "password" : "7b6a43524a78700d662158",
+  "url" : "jdbc:hsqldb:file:{WebAppRoot}/WEB-INF/data/salesdb;shutdown=true;hsqldb.lock_file=false;",
+  "driverClass" : "org.hsqldb.jdbcDriver",
+  "dialect" : "org.hibernate.dialect.HSQLDialect",
+  "serviceId" : "salesdb",
+  "packageName" : "com.salesdb",
+  "dbType" : "HSQLDB",
+  "host" : null,
+  "dbName" : "salesdb",
+  "port" : null,
+  "schemaName" : null,
+  "tableFilter" : [ {
+    "table" : "CHANNELS",
+    "schema" : "PUBLIC"
+  }, {
+    "table" : "CUSTOMERS",
+    "schema" : "PUBLIC"
+  }, {
+    "table" : "FOLLOW_UPS",
+    "schema" : "PUBLIC"
+  }, {
+    "table" : "LEADS",
+    "schema" : "PUBLIC"
+  }, {
+    "table" : "PRODUCTS",
+    "schema" : "PUBLIC"
+  }, {
+    "table" : "QUOTES",
+    "schema" : "PUBLIC"
+  }, {
+    "table" : "REPS",
+    "schema" : "PUBLIC"
+  }, {
+    "table" : "SALES",
+    "schema" : "PUBLIC"
+  }, {
+    "table" : "STATES",
+    "schema" : "PUBLIC"
+  }, {
+    "table" : "TASKS",
+    "schema" : "PUBLIC"
+  } ],
+  "schemaFilter" : [ ".*" ],
+  "impersonateUser" : false,
+  "activeDirectoryDomain" : null,
+  "hbm2ddl" : "none",
+  "maxPageSize" : 100,
+  "dataSourceType" : "WM_MANAGED_DATASOURCE",
+  "jndiName" : "",
+  "reloadInfo" : {
+    "reload" : false,
+    "reason" : null,
+    "message" : null
+  },
+  "readOnly" : true
+}

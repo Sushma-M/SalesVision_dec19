@@ -1,0 +1,19 @@
+{
+  "modelName" : "salesdb",
+  "entityName" : "Reps",
+  "tableName" : "REPS",
+  "unamePropertyName" : "name",
+  "unameColumnName" : "NAME",
+  "uidPropertyName" : "id",
+  "uidColumnName" : "ID",
+  "pwPropertyName" : "password",
+  "pwColumnName" : "PASSWORD",
+  "rolePropertyName" : "",
+  "roleColumnName" : "",
+  "useRolesQuery" : true,
+  "rolesByUsernameQuery" : "SELECT ID, ROLE FROM REPS WHERE NAME = ?",
+  "tenantIdField" : null,
+  "defTenantId" : 0,
+  "tenantIdPropertyName" : null,
+  "queryType" : "SQL"
+}

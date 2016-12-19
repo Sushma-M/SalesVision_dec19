@@ -1,0 +1,36 @@
+<wm-page name="googlemap" data-ng-controller="GooglemapsController">
+    <wm-content name="googlemapview">
+        <wm-spinner show="bind:isMapLoading" class="spinner-transparent"></wm-spinner>
+        <ng-map id="map" default-style="false" map-initialized="onMapLoad" class="full-height full-width" center="{{center}}" zoom="{{zoom}}" draggable="true">
+            <div ng-repeat="marker in markersData">
+                <marker position="{{marker.latlng}}" on-mouseover="onMarkerHover(event, marker)" on-click="onMarkerClick(event, marker)" icon="{{marker.iconData}}">
+                </marker>
+            </div>
+            <shape ng-if="radius" name="circle" ng-repeat="shape in markersData"
+                   stroke-color="{{shape.color}}"
+                   stroke-opacity="0.5"
+                   stroke-weight="2"
+                   fill-color="{{shape.color}}"
+                   fill-opacity="0.35"
+                   center="{{shape.latlng}}"
+                   radius="{{shape.radius}}">
+            </shape>
+            <directions
+                    ng-if="directionsData.wayPoints"
+                    travel-mode="{{travelMode}}"
+                    waypoints="{{directionsData.wayPoints}}"
+                    origin="{{directionsData.origin}}"
+                    destination="{{directionsData.destination}}">
+            </directions>
+            <directions
+                    ng-if="!directionsData.wayPoints"
+                    travel-mode="{{travelMode}}"
+                    origin="{{directionsData.origin}}"
+                    destination="{{directionsData.destination}}">
+            </directions>
+            <traffic-layer ng-if="trafficLayer"></traffic-layer>
+            <transit-layer ng-if="transitLayer"></transit-layer>
+            <heatmap-layer id="heatmapLayer" ng-if="isHeatMapDataReady" data="heatmapData"></heatmap-layer>
+        </ng-map>
+    </wm-content>
+</wm-page>

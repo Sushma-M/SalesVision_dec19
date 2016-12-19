@@ -1,0 +1,42 @@
+<wm-page layouttype="two-column" columns="2" data-ng-controller="LeadsPageController" name="page1"> 
+    <wm-header content="header" name="header1"></wm-header> 
+    <wm-top-nav content="topnav" name="top-nav1"></wm-top-nav> 
+    <wm-content name="content1"> 
+        <wm-row name="row1"> 
+            <wm-left-panel contentwidth="2" content="leadsList" name="left-panel1" columnwidth="2" horizontalalign="left"></wm-left-panel> 
+            <wm-column class="app-content-column" columnwidth="10" name="column1"> 
+                <wm-label name="label1" width="100%" caption="Sales Force Leads" margintop="1" marginbottom="1" marginleft="0.5" marginunit="em" fontsize="1.5" fontunit="em"></wm-label> 
+                <wm-composite widget="text" name="composite2"> 
+                    <wm-label class="col-md-2" name="label3" caption="Name: "></wm-label> 
+                    <wm-label class="col-md-10" name="label4" caption="bind:Variables.selectedLead.dataSet.Name"></wm-label> 
+                </wm-composite> 
+                <wm-composite widget="text" name="composite2"> 
+                    <wm-label class="col-md-2" name="label4" caption="Industry: "></wm-label> 
+                    <wm-label class="col-md-10" name="label5" caption="bind:Variables.selectedLead.dataSet.Industry"></wm-label> 
+                </wm-composite> 
+                <wm-composite widget="text" name="composite3"> 
+                    <wm-label class="col-md-2" name="label6" caption="Annual Revenue: "></wm-label> 
+                    <wm-label class="col-md-10" name="label7" caption="bind:(Variables.selectedLead.dataSet.AnnualRevenue | currency:'$')"></wm-label> 
+                </wm-composite> 
+                <wm-composite widget="text" name="composite4"> 
+                    <wm-label class="col-md-2" name="label8" caption="Employees: "></wm-label> 
+                    <wm-label class="col-md-10" name="label9" caption="bind:(Variables.selectedLead.dataSet.NumberOfEmployees | number)"></wm-label> 
+                </wm-composite> 
+                <wm-composite widget="text" name="composite5"> 
+                    <wm-label class="col-md-2" name="label10" caption="Address: "></wm-label> 
+                    <wm-label class="col-md-10" name="label11" caption="bind:Variables.selectedLead.dataSet.BillingStreet"></wm-label> 
+                </wm-composite> 
+                <wm-composite widget="text" name="composite5"> 
+                    <wm-label class="col-md-2" name="label10" caption="City: "></wm-label> 
+                    <wm-label class="col-md-10" name="label11" caption="bind:Variables.selectedLead.dataSet.BillingCity"></wm-label> 
+                </wm-composite> 
+                <wm-composite widget="text" name="composite7"> 
+                    <wm-label class="col-md-2" caption="Website: " name="label14"></wm-label> 
+                    <wm-anchor class="col-md-10" hyperlink="bind:Variables.selectedLead.dataSet.Website" caption="bind:(Variables.selectedLead.dataSet.Website || ' ')" name="label15" color="#0088ba"></wm-anchor> 
+                </wm-composite> 
+                <wm-prefab prefabname="googlemaps" name="googlemaps" zoom="8" locations="bind:Variables.selectedLead.dataSet" address="BillingStreet BillingCity" height="600" info="Name" markertype="Address"></wm-prefab> 
+            </wm-column> 
+        </wm-row> 
+    </wm-content> 
+    <wm-footer content="footer" name="footer1"></wm-footer> 
+</wm-page>

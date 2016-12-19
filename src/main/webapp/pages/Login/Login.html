@@ -1,0 +1,36 @@
+<wm-page layouttype="one-column" columns="1" data-ng-controller="LoginPageController" name="page1"> 
+    <wm-header name="header" content="header" height="auto"></wm-header> 
+    <wm-content name="content1"> 
+        <wm-row name="row1"> 
+            <wm-column class="app-content-column" columnwidth="12" name="column1"> 
+                <wm-layoutgrid rows="3" columns="3" name="loginGrid" height="auto"> 
+                    <wm-gridrow name="loginGridRow" height="100%"> 
+                        <wm-gridcolumn name="paddingColumnLeft" columnwidth="4"></wm-gridcolumn> 
+                        <wm-gridcolumn name="loginContentColumn" columnwidth="4" horizontalalign="left"> 
+                            <wm-panel name="loginPanel" horizontalalign="left" backgroundcolor="#e3e3e3" bordercolor="#b8b8b8" borderstyle="solid" bordertop="1" borderright="1" borderleft="1" borderbottom="1" height="auto" width="100%" margintop="20" marginbottom="20" marginunit="%"> 
+                                <wm-login name="loginForm" data-ng-controller="loginFormController"> 
+                                    <wm-composite name="userNameField"> 
+                                        <wm-label caption="Username" name="userNameLabel"></wm-label> 
+                                        <wm-text placeholder="Enter username" name="usernametext" class="app-login-username" width="100%" autocomplete="off" autocorrect="off" autocapitalize="off"></wm-text> 
+                                    </wm-composite> 
+                                    <wm-composite widget="text" name="passwordField"> 
+                                        <wm-label caption="Password" name="passwordLabel"></wm-label> 
+                                        <wm-text type="password" name="passwordtext" placeholder="Enter password" class="app-login-password" width="100%" autocomplete="off" autocorrect="off" autocapitalize="off"></wm-text> 
+                                    </wm-composite> 
+                                    <wm-button type="submit" caption="Sign in" width="100%" class="app-login-button btn-primary" name="loginButton"></wm-button> 
+                                    <wm-composite widget="checkbox" name="remembermeFields"> 
+                                        <wm-checkbox name="remembermeCheck" class="app-login-rememberme"></wm-checkbox> 
+                                        <wm-label caption="Remember Me" class="app-login-remembermetext" name="rememberMe"></wm-label> 
+                                        <!--<wm-html width="100%" height="auto" name="html1">use 'admin@wavehealth.com/admin'</wm-html>--> 
+                                    </wm-composite> 
+                                </wm-login> 
+                            </wm-panel> 
+                        </wm-gridcolumn> 
+                        <wm-gridcolumn name="paddingColumnRight" columnwidth="4"></wm-gridcolumn> 
+                    </wm-gridrow> 
+                </wm-layoutgrid> 
+            </wm-column> 
+        </wm-row> 
+    </wm-content> 
+    <wm-footer name="footer" content="footer"></wm-footer> 
+</wm-page>

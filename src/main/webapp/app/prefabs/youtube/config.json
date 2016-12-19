@@ -1,0 +1,30 @@
+{
+    "group": "media",
+    "templateUrl": "/pages/Main/Main.html",
+    "controllerUrl": "/pages/Main/Main.js",
+    "variablesUrl": "/pages/Main/Main.variables.json",
+    "iconUrl": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3NzQ3Nzc3Nzc2Nzc3Nzc0Ny03Nzc3Nzc3Nyw3N//AABEIABgAGAMBEQACEQEDEQH/xAAXAAEBAQEAAAAAAAAAAAAAAAAGBQcE/8QAJRAAAgEDBAIBBQAAAAAAAAAAAQIDBAURABIhMQYiYSNBUWLw/8QAGQEAAgMBAAAAAAAAAAAAAAAAAQMCBAUA/8QAJREAAgECBAYDAAAAAAAAAAAAAQIAAxEEEjFhBRQhUeHwI5Gh/9oADAMBAAIRAxEAPwDRr/VzW+wm40yJJJCUlmDICZUyN4yeuCTn41IyIkan8wajhWC5UCy1CRgySDauXwhK7ccACQDP3xoQxHQV0VytJrYoFhbMgXAGVKMy5zj9dGAwwnkK3yhrKCOijamWDEjTVgiLJjBI9T/Eaq8zmJAH7NxuDCkiGo5u3Zb9e2sjS1FLcBWVz2GoOEAlxWsNucDcBt4P0xk/Go8ySL5Y5uCUlYKa2u3mdlB5VFa6NLcbVPTwbWYM85dgHJbPKjPJOuGL6gFZz8AuhanVBI28mH4ag2eSupayJkmelen2ZAKucd5I4470gKVJvNR6q10plDoQfqIE8xtqTMyLV42E9RgMx3+p9+vYc/HWnZxMw4OoRYke222kzyC5DyS7RC3CaZnQokbhQQxZjgAE8DcOSfyeBpdT5GFpcwlsHQYOR6LT/9k=",
+    "resources": {
+        "styles":[],
+        "scripts":[]
+    },
+    "properties": {
+        "youtubeurl": {
+            "type": "string",
+            "value": "http://www.youtube.com/embed/N1umLw5I3As",
+            "bindable": "in-out-bound"
+        },
+        "width": {
+            "type": "string",
+            "value": "640"
+        },
+        "height": {
+            "type": "string",
+            "value": "360"
+        },
+        "allowfullscreen": {
+            "type": "boolean",
+            "value": true
+        }
+    }
+}

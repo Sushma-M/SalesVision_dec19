@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service xmlns="http://www.activegrid.com/namespaces/ServiceDefinitions/1.0" id="FileService" class="com.salesvision2_0.fileservice.FileService" type="JavaService" springFile="FileService.spring.xml">
+    <operation name="deleteFile">
+        <parameter name="file" typeRef="java.lang.String" isList="false"/>
+        <return typeRef="boolean" isList="false"/>
+    </operation>
+    <operation name="getDownloadFile">
+        <parameter name="file" typeRef="java.lang.String" isList="false"/>
+        <parameter name="returnName" typeRef="java.lang.String" isList="false"/>
+        <return typeRef="com.wavemaker.runtime.file.model.DownloadResponse" isList="false"/>
+    </operation>
+    <operation name="getDownloadFileAsInline">
+        <parameter name="file" typeRef="java.lang.String" isList="false"/>
+        <parameter name="returnName" typeRef="java.lang.String" isList="false"/>
+        <return typeRef="com.wavemaker.runtime.file.model.DownloadResponse" isList="false"/>
+    </operation>
+    <operation name="listFiles">
+        <parameter name="httpServletRequest" typeRef="javax.servlet.http.HttpServletRequest" isList="false"/>
+        <return typeRef="com.salesvision2_0.fileservice.FileService.WMFile" isList="true"/>
+    </operation>
+    <operation name="uploadFile">
+        <parameter name="files" typeRef="org.springframework.web.multipart.MultipartFile" isList="true"/>
+        <parameter name="relativePath" typeRef="java.lang.String" isList="false"/>
+        <parameter name="httpServletRequest" typeRef="javax.servlet.http.HttpServletRequest" isList="false"/>
+        <return typeRef="com.salesvision2_0.fileservice.FileService.FileUploadResponse" isList="true"/>
+    </operation>
+    <dataobjects>
+        <dataobject javaType="com.wavemaker.runtime.file.model.DownloadResponse" name="DownloadResponse" supportsQuickData="false">
+            <element name="contentLength" typeRef="java.lang.Integer" isList="false" allowNull="false"/>
+            <element name="contentType" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="contents" typeRef="java.io.InputStream" isList="false" allowNull="false"/>
+            <element name="fileName" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="inline" typeRef="boolean" isList="false" allowNull="false"/>
+        </dataobject>
+        <dataobject javaType="com.salesvision2_0.fileservice.FileService.WMFile" name="WMFile" supportsQuickData="false">
+            <element name="name" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="path" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="size" typeRef="long" isList="false" allowNull="false"/>
+            <element name="type" typeRef="java.lang.String" isList="false" allowNull="false"/>
+        </dataobject>
+        <dataobject javaType="javax.servlet.http.HttpServletRequest" name="HttpServletRequest" supportsQuickData="false">
+            <element name="authType" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="contextPath" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="cookies" typeRef="javax.servlet.http.Cookie" isList="true" allowNull="false"/>
+            <element name="headerNames" typeRef="java.util.Enumeration" isList="false" allowNull="false"/>
+            <element name="method" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="pathInfo" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="pathTranslated" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="queryString" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="remoteUser" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="requestURI" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="requestURL" typeRef="java.lang.StringBuffer" isList="false" allowNull="false"/>
+            <element name="requestedSessionId" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="servletPath" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="session" typeRef="javax.servlet.http.HttpSession" isList="false" allowNull="false"/>
+            <element name="userPrincipal" typeRef="java.security.Principal" isList="false" allowNull="false"/>
+            <element name="requestedSessionIdFromCookie" typeRef="boolean" isList="false" allowNull="false"/>
+            <element name="requestedSessionIdFromURL" typeRef="boolean" isList="false" allowNull="false"/>
+            <element name="requestedSessionIdFromUrl" typeRef="boolean" isList="false" allowNull="false"/>
+            <element name="requestedSessionIdValid" typeRef="boolean" isList="false" allowNull="false"/>
+            <element name="attributeNames" typeRef="java.util.Enumeration" isList="false" allowNull="false"/>
+            <element name="characterEncoding" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="contentLength" typeRef="int" isList="false" allowNull="false"/>
+            <element name="contentType" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="inputStream" typeRef="javax.servlet.ServletInputStream" isList="false" allowNull="false"/>
+            <element name="localAddr" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="localName" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="localPort" typeRef="int" isList="false" allowNull="false"/>
+            <element name="locale" typeRef="java.util.Locale" isList="false" allowNull="false"/>
+            <element name="locales" typeRef="java.util.Enumeration" isList="false" allowNull="false"/>
+            <element name="parameterMap" typeRef="java.util.Map" isList="false" allowNull="false"/>
+            <element name="parameterNames" typeRef="java.util.Enumeration" isList="false" allowNull="false"/>
+            <element name="protocol" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="reader" typeRef="java.io.BufferedReader" isList="false" allowNull="false"/>
+            <element name="remoteAddr" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="remoteHost" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="remotePort" typeRef="int" isList="false" allowNull="false"/>
+            <element name="scheme" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="serverName" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="serverPort" typeRef="int" isList="false" allowNull="false"/>
+            <element name="secure" typeRef="boolean" isList="false" allowNull="false"/>
+        </dataobject>
+        <dataobject javaType="com.salesvision2_0.fileservice.FileService.FileUploadResponse" name="FileUploadResponse" supportsQuickData="false">
+            <element name="errorMessage" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="fileName" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="length" typeRef="long" isList="false" allowNull="false"/>
+            <element name="path" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="success" typeRef="boolean" isList="false" allowNull="false"/>
+        </dataobject>
+        <dataobject javaType="org.springframework.web.multipart.MultipartFile" name="MultipartFile" supportsQuickData="false">
+            <element name="bytes" typeRef="byte" isList="true" allowNull="false"/>
+            <element name="contentType" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="inputStream" typeRef="java.io.InputStream" isList="false" allowNull="false"/>
+            <element name="name" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="originalFilename" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="size" typeRef="long" isList="false" allowNull="false"/>
+            <element name="empty" typeRef="boolean" isList="false" allowNull="false"/>
+        </dataobject>
+    </dataobjects>
+</service>

@@ -1,0 +1,46 @@
+{
+  "redirectEnabled" : true,
+  "headers" : {
+    "Authorization" : "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSJ9.eyJhdWQiOiJodHRwczovL3dhdmVtYWtlcjEuc2hhcmVwb2ludC5jb20vIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvNTM5ZmI2MWQtMzFmMS00MzkzLWEzZmYtY2RmOTQ2NjVhY2QwLyIsImlhdCI6MTQ1NTcxNDcyNywibmJmIjoxNDU1NzE0NzI3LCJleHAiOjE0NTU3MTg2MjcsImFjciI6IjEiLCJhbXIiOlsicHdkIl0sImFwcGlkIjoiNjhlMjZlNzMtY2E4MC00ZmQyLWI4N2ItMWFlMDBkMjBkMzJmIiwiYXBwaWRhY3IiOiIxIiwiZmFtaWx5X25hbWUiOiJTaGFoIiwiZ2l2ZW5fbmFtZSI6Ik1heXVyIiwiaXBhZGRyIjoiNTQuMTQ3LjIwNy4yMjAiLCJuYW1lIjoiTWF5dXIgU2hhaCIsIm9pZCI6ImFiZDEwZjVkLWE4ZDgtNGYyMy1iMjEyLTEwOGU5ZmMzZDU0YiIsInB1aWQiOiIxMDAzQkZGRDk2NEIwRkQ2Iiwic2NwIjoiQWxsU2l0ZXMuRnVsbENvbnRyb2wiLCJzdWIiOiIwNXpiT3gxcHkwWTFNZFh5XzR5YVZZbk9QTEM4QnYzeWZnM2tqakxodXBjIiwidGlkIjoiNTM5ZmI2MWQtMzFmMS00MzkzLWEzZmYtY2RmOTQ2NjVhY2QwIiwidW5pcXVlX25hbWUiOiJtYXl1ckB3YXZlbWFrZXIxLm9ubWljcm9zb2Z0LmNvbSIsInVwbiI6Im1heXVyQHdhdmVtYWtlcjEub25taWNyb3NvZnQuY29tIiwidmVyIjoiMS4wIn0.fic33gCjapMwxtSbRMI6ab5wF1oNJ-tDtzRimKeWxH7jjuOVVYBtdG_SkEw4enm6dsSi1hf12zSLd4DFQ4M5e_JS-nD6ajNIGZPc4h-rCVrudTwsmHPoVOhBNy_0Xzsp7rIgvXgj8hXZIAb2sJCB60oRVmovPC2YCxTzLyn4kS1oBrI3xRPAFkr_57QrTgGAidyQYgR4vjE5hOf1iD2A9CdjSFFu2aJsmHwwZfMoZ9bv1fBYFQSQPAsrEBj5WOzUhzJkOwUZDPh-QsJRV0HhXOD4O4MSo4dlVo7tz8kN50SiiY_lKI0n_RvK70WDVBdZPBwt92JyF6WO1L81QtUqSw",
+    "Accept" : "application/json;odata=verbose"
+  },
+  "requestBody" : "{\n \"Title\": \"2\",\n \"CustomerName\": \"TEstName\"\n }",
+  "endpointAddress" : "https://wavemaker1.sharepoint.com/_api/web/lists/getByTitle('CustomerRepository')/items",
+  "queryParams" : { },
+  "proxy" : null,
+  "method" : "POST",
+  "authType" : "NONE",
+  "contentType" : "application/json",
+  "sampleRestResponse" : {
+    "statusCode" : 201,
+    "responseBody" : "{\"d\":{\"__metadata\":{\"id\":\"d73ec42e-2eac-4e83-93e3-ce509024088e\",\"uri\":\"https://wavemaker1.sharepoint.com/_api/Web/Lists(guid'3b76aa14-024d-433a-9752-5db43a8b4e28')/Items(5)\",\"etag\":\"\\\"1\\\"\",\"type\":\"SP.Data.CustomerRepositoryListItem\"},\"FirstUniqueAncestorSecurableObject\":{\"__deferred\":{\"uri\":\"https://wavemaker1.sharepoint.com/_api/Web/Lists(guid'3b76aa14-024d-433a-9752-5db43a8b4e28')/Items(5)/FirstUniqueAncestorSecurableObject\"}},\"RoleAssignments\":{\"__deferred\":{\"uri\":\"https://wavemaker1.sharepoint.com/_api/Web/Lists(guid'3b76aa14-024d-433a-9752-5db43a8b4e28')/Items(5)/RoleAssignments\"}},\"AttachmentFiles\":{\"__deferred\":{\"uri\":\"https://wavemaker1.sharepoint.com/_api/Web/Lists(guid'3b76aa14-024d-433a-9752-5db43a8b4e28')/Items(5)/AttachmentFiles\"}},\"ContentType\":{\"__deferred\":{\"uri\":\"https://wavemaker1.sharepoint.com/_api/Web/Lists(guid'3b76aa14-024d-433a-9752-5db43a8b4e28')/Items(5)/ContentType\"}},\"GetDlpPolicyTip\":{\"__deferred\":{\"uri\":\"https://wavemaker1.sharepoint.com/_api/Web/Lists(guid'3b76aa14-024d-433a-9752-5db43a8b4e28')/Items(5)/GetDlpPolicyTip\"}},\"FieldValuesAsHtml\":{\"__deferred\":{\"uri\":\"https://wavemaker1.sharepoint.com/_api/Web/Lists(guid'3b76aa14-024d-433a-9752-5db43a8b4e28')/Items(5)/FieldValuesAsHtml\"}},\"FieldValuesAsText\":{\"__deferred\":{\"uri\":\"https://wavemaker1.sharepoint.com/_api/Web/Lists(guid'3b76aa14-024d-433a-9752-5db43a8b4e28')/Items(5)/FieldValuesAsText\"}},\"FieldValuesForEdit\":{\"__deferred\":{\"uri\":\"https://wavemaker1.sharepoint.com/_api/Web/Lists(guid'3b76aa14-024d-433a-9752-5db43a8b4e28')/Items(5)/FieldValuesForEdit\"}},\"File\":{\"__deferred\":{\"uri\":\"https://wavemaker1.sharepoint.com/_api/Web/Lists(guid'3b76aa14-024d-433a-9752-5db43a8b4e28')/Items(5)/File\"}},\"Folder\":{\"__deferred\":{\"uri\":\"https://wavemaker1.sharepoint.com/_api/Web/Lists(guid'3b76aa14-024d-433a-9752-5db43a8b4e28')/Items(5)/Folder\"}},\"ParentList\":{\"__deferred\":{\"uri\":\"https://wavemaker1.sharepoint.com/_api/Web/Lists(guid'3b76aa14-024d-433a-9752-5db43a8b4e28')/Items(5)/ParentList\"}},\"FileSystemObjectType\":0,\"Id\":5,\"ContentTypeId\":\"0x0100E8613B1DAED0A141A35B71B0C5446574\",\"Title\":\"2\",\"CustomerName\":\"TEstName\",\"ID\":5,\"Modified\":\"2016-02-17T14:04:35Z\",\"Created\":\"2016-02-17T14:04:35Z\",\"AuthorId\":11,\"EditorId\":11,\"OData__UIVersionString\":\"1.0\",\"Attachments\":false,\"GUID\":\"f509acdb-bf0f-4c31-88e0-85a4c7922d72\"}}",
+    "convertedResponse" : null,
+    "contentType" : "application/json",
+    "responseHeaders" : {
+      "ETag" : [ "\"1\"" ],
+      "X-SharePointHealthScore" : [ "0" ],
+      "MicrosoftSharePointTeamServices" : [ "16.0.0.4921" ],
+      "DATASERVICEVERSION" : [ "3.0" ],
+      "Expires" : [ "Tue, 02 Feb 2016 14:04:35 GMT" ],
+      "request-id" : [ "8d1b609d-505b-3000-34ba-63ba7ee0fb3b" ],
+      "Last-Modified" : [ "Wed, 17 Feb 2016 14:04:35 GMT" ],
+      "Location" : [ "https://wavemaker1.sharepoint.com/_api/Web/Lists(guid'3b76aa14-024d-433a-9752-5db43a8b4e28')/Items(5)" ],
+      "X-Powered-By" : [ "ASP.NET" ],
+      "Server" : [ "Microsoft-IIS/8.5" ],
+      "Cache-Control" : [ "private, max-age=0" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "SPRequestGuid" : [ "8d1b609d-505b-3000-34ba-63ba7ee0fb3b" ],
+      "X-AspNet-Version" : [ "4.0.30319" ],
+      "Strict-Transport-Security" : [ "max-age=31536000" ],
+      "Transfer-Encoding" : [ "chunked" ],
+      "Date" : [ "Wed, 17 Feb 2016 14:04:35 GMT" ],
+      "P3P" : [ "CP=\"ALL IND DSP COR ADM CONo CUR CUSo IVAo IVDo PSA PSD TAI TELo OUR SAMo CNT COM INT NAV ONL PHY PRE PUR UNI\"" ],
+      "X-FRAME-OPTIONS" : [ "SAMEORIGIN" ],
+      "X-SP-SERVERSTATE" : [ "ReadOnly=0" ],
+      "X-MS-InvokeApp" : [ "1; RequireReadOnly" ],
+      "Content-Type" : [ "application/json;odata=verbose;charset=utf-8" ],
+      "SPClientServiceRequestDuration" : [ "111" ]
+    },
+    "cookies" : [ ]
+  }
+}

@@ -1,0 +1,69 @@
+<wm-page layouttype="two-column" columns="2" data-ng-controller="SalesRepsPageController" name="page1"> 
+    <wm-header content="header" name="header1"></wm-header> 
+    <wm-top-nav content="topnav" name="top-nav1"></wm-top-nav> 
+    <wm-content name="content1"> 
+        <wm-left-panel columnwidth="2" name="left_panel1"> 
+            <wm-livelist name="livelist1" data-ng-controller="livelist1Controller" height="100%" dataset="bind:Variables.SalesdbRepsData.dataSet" class="app-list" listclass="nav nav-pills nav-stacked" itemclass="nav-item"> 
+                <wm-listtemplate name="listtemplate1"> 
+                    <wm-anchor caption="bind:Variables.SalesdbRepsData.dataSet.name" name="button0" data-ng-class="{'active': Widgets.livelist1.selecteditem.id === item.id}" textalign="left"></wm-anchor> 
+                </wm-listtemplate> 
+            </wm-livelist> 
+        </wm-left-panel> 
+        <wm-page-content class="app-content-column" columnwidth="10" name="column1" paddingleft="1" paddingright="1" paddingtop="1" paddingunit="em"> 
+            <wm-layoutgrid rows="3" columns="1" name="layoutgrid2"> 
+                <wm-gridrow name="gridrow4"> 
+                    <wm-gridcolumn name="gridcolumn10" columnwidth="2"> 
+                        <wm-picture name="picture2" picturesource="bind:Widgets.livelist1.selecteditem.picurl" width="150"></wm-picture> 
+                    </wm-gridcolumn> 
+                    <wm-gridcolumn name="gridcolumn11" columnwidth="3"> 
+                        <wm-label width="100%" name="labe12" caption="bind:Widgets.livelist1.selecteditem.name"></wm-label> 
+                        <wm-label width="100%" name="labe13" caption="bind:Widgets.livelist1.selecteditem.street + ', ' + Widgets.livelist1.selecteditem.city" class="lite"></wm-label> 
+                        <wm-label width="100%" name="labe15" caption="bind:Widgets.livelist1.selecteditem.state + '-' + Widgets.livelist1.selecteditem.zip" class="lite"></wm-label> 
+                    </wm-gridcolumn> 
+                    <wm-gridcolumn name="gridcolumn12" columnwidth="7"> 
+                        <wm-picture name="picture1" picturesource="bind:'http://maps.googleapis.com/maps/api/staticmap?key=AIzaSyCEtrJvGCj1Un6nqbNYJEZW6QRNx0HtB3E&amp;center=' + Widgets.livelist1.selecteditem.street + ',' + Widgets.livelist1.selecteditem.city + ',' + Widgets.livelist1.selecteditem.zip + '&amp;zoom=13&amp;size=600x150&amp;type=.jpg'"></wm-picture> 
+                    </wm-gridcolumn> 
+                </wm-gridrow> 
+                <wm-gridrow name="gridrow4"> 
+                    <wm-gridcolumn name="gridcolumn7" class="overflow-visible"> 
+                        <wm-label name="label11" width="100%" caption="Track Tasks:" margintop="2" marginunit="em"></wm-label> 
+                        <wm-label class="col-md-3" caption="" name="label6"></wm-label> 
+                        <wm-label class="col-md-2 filter-label" caption="Filter: " name="label7" textalign="right"></wm-label> 
+                        <wm-buttongroup name="buttongroup1" class="col-md-5"> 
+                            <wm-button caption="All" name="button1" on-click="filterGrid()" class="btn-prim"></wm-button> 
+                            <wm-button caption="Pending" name="button2" on-click="filterGrid('Pending')" class="btn-prim"></wm-button> 
+                            <wm-button caption="Done" name="button3" on-click="filterGrid('Done')" class="btn-prim"></wm-button> 
+                        </wm-buttongroup> 
+                        <wm-button name="button4" class="col-md-2 btn-prim" caption="Add Task" iconname="plus-sign" on-click="Widgets.dialog1.open()" margintop="0.2" marginunit="em"></wm-button> 
+                    </wm-gridcolumn> 
+                </wm-gridrow> 
+            </wm-layoutgrid> 
+            <wm-grid name="grid3" dataset="bind:Variables.allTasksForARep.dataSet" readonlygrid="false" insertrow="false" updaterow="false" deleterow="false" class="panel-default"> 
+                <wm-grid-column binding="description" caption="description" type="text" pcdisplay="true" mobiledisplay="true"></wm-grid-column> 
+                <wm-grid-column binding="duedate" caption="duedate" type="date" pcdisplay="true" mobiledisplay="true"></wm-grid-column> 
+                <wm-grid-column binding="done" caption="Status" type="boolean" pcdisplay="true" mobiledisplay="true"></wm-grid-column> 
+            </wm-grid> 
+        </wm-page-content> 
+    </wm-content> 
+    <wm-footer content="footer" name="footer1"></wm-footer> 
+    <wm-view class="dialog-view" name="view1" show="false"> 
+        <wm-dialog dialogtype="design-dialog" modal="true" name="dialog1" title="Add Task" contentclass="overflow-visible dialog-form">
+            <wm-composite widget="date" name="composite1"> 
+                <wm-label class="col-md-2" name="label2" caption="Due"></wm-label> 
+                <wm-date name="dueDate"></wm-date> 
+            </wm-composite> 
+            <wm-composite widget="textarea" name="composite2"> 
+                <wm-label class="col-md-2" name="label3" caption="Desc"></wm-label> 
+                <wm-textarea name="desc"></wm-textarea> 
+            </wm-composite> 
+            <wm-composite widget="checkbox" name="composite3"> 
+                <wm-label class="col-md-2" name="label4" caption="Is Done"></wm-label> 
+                <wm-checkbox name="isDone"></wm-checkbox> 
+            </wm-composite>   
+            <wm-dialogactions name="dialogactions1"> 
+                <wm-button name="button2" caption="Cancel" iconname="remove-sign" on-click="Widgets.dialog1.close()" class="btn-secondary"></wm-button> 
+                <wm-button name="button1" caption="Save" iconname="save" on-click="insertTask()" class="btn-primary"></wm-button> 
+            </wm-dialogactions> 
+        </wm-dialog> 
+    </wm-view> 
+</wm-page>

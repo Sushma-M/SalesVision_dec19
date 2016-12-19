@@ -1,0 +1,48 @@
+{
+	"methods": [{
+		"operationType": null,
+		"name": "getCASProxyTicket",
+		"parameters": [{
+			"name": "serviceUrl",
+			"type": "java.lang.String"
+		}],
+		"returnType": "java.lang.String"
+	}, {
+		"operationType": null,
+		"name": "getTenantId",
+		"parameters": null,
+		"returnType": "int"
+	}, {
+		"operationType": null,
+		"name": "getUserId",
+		"parameters": null,
+		"returnType": "java.lang.String"
+	}, {
+		"operationType": null,
+		"name": "getUserName",
+		"parameters": null,
+		"returnType": "java.lang.String"
+	}, {
+		"operationType": null,
+		"name": "getUserRoles",
+		"parameters": null,
+		"returnType": "[java.lang.String]"
+	}, {
+		"operationType": null,
+		"name": "isAuthenticated",
+		"parameters": null,
+		"returnType": "boolean"
+	}, {
+		"operationType": null,
+		"name": "isSecurityEnabled",
+		"parameters": null,
+		"returnType": "java.lang.Boolean"
+	}, {
+		"operationType": null,
+		"name": "logout",
+		"parameters": null,
+		"returnType": null
+	}],
+	"serviceURL": "securityService.json",
+	"serviceType": "JSON-RPC"
+}

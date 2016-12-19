@@ -1,0 +1,26 @@
+<wm-partial layouttype="blank" columns="1" data-ng-controller="topnavPageController" name="page1" type="top-nav"> 
+    <wm-navbar name="navbar1"> 
+        <wm-nav name="leftTopLinks" type="navbar" class=" navbar-left"> 
+            <wm-nav-item name="list_latestUpdate"> 
+                <wm-anchor caption="Dashboard" name="systemVitalsButton" iconname="stats" on-click="Variables.goToPage-Main.invoke()" class="{{pagename === 'Main' &amp;&amp; 'active'}}"></wm-anchor> 
+            </wm-nav-item> 
+            <wm-nav-item name="list_inTheNews"> 
+                <wm-anchor caption="Sales Growth" name="salesGrowthButton" iconname="usd" on-click="Variables.goToPage-SalesGrowth.invoke()" class="{{pagename === 'SalesGrowth' &amp;&amp; 'active'}}"></wm-anchor> 
+            </wm-nav-item> 
+            <wm-nav-item name="list-item4"> 
+                <wm-anchor caption="Leads" name="leadsButton" iconname="thumbs-up" on-click="Variables.goToPage-Leads.invoke()" class="{{pagename === 'Leads' &amp;&amp; 'active'}}"></wm-anchor> 
+            </wm-nav-item> 
+            <wm-nav-item name="list-item4"> 
+                <wm-anchor caption="Sales Reps" name="salesRepsButton" iconname="user" on-click="Variables.goToPage-SalesReps.invoke()" class="{{pagename === 'SalesReps' &amp;&amp; 'active'}}" accessroles="Everyone"></wm-anchor> 
+            </wm-nav-item> 
+            <wm-nav-item name="list-item5"> 
+                <wm-anchor caption="Customer Repo" name="customerRepoButton" iconname="user" class="{{pagename === 'SalesReps' &amp;&amp; 'active'}}" accessroles="Everyone" on-click="Variables.goToPage_CustomerRepoTest.invoke()" show="false"></wm-anchor> 
+            </wm-nav-item> 
+        </wm-nav> 
+        <wm-nav name="rightTopLinks" type="navbar" class=" navbar-right"> 
+            <wm-nav-item name="list_help"> 
+                <wm-anchor caption="Logout" name="logoutButton" iconname="log-out" on-click="Variables.logoutVariable.invoke()"></wm-anchor> 
+            </wm-nav-item> 
+        </wm-nav> 
+    </wm-navbar> 
+</wm-partial>

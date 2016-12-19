@@ -1,0 +1,35 @@
+<project name="ProjectBuildHelper" basedir=".">
+    <description>
+        Project Build Helper
+    </description>
+    <property name="webInf" location="src/main/webapp/WEB-INF" />
+
+    <target name="copy-libs-jar">
+        <mkdir dir="${webInf}/lib"/>
+        <echo>Copying jars from ${basedir}/lib to ${webInf}/lib</echo>
+        <copy todir="${webInf}/lib" overwrite="true">
+            <fileset dir="lib">
+                <exclude name="Readme.txt" />
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="copy-wm-project-properties">
+        <mkdir dir="target/classes"/>
+        <echo>Copying .wmproject.properties file to target/classes(classpath)</echo>
+        <copy file=".wmproject.properties" todir="target/classes" overwrite="true" failonerror="false"/>
+    </target>
+
+    <target name="cdnUrl-replace">
+        <replaceregexp file="src/main/webapp/index.html" byline="true">
+            <regexp pattern="/studio/_static_/*.*.*.*/wmapp"/>
+            <substitution expression="_cdnUrl_/wmapp"/>
+        </replaceregexp>
+        <replaceregexp file="src/main/webapp/index.html" byline="true">
+            <regexp pattern="//.*.cloudfront.net/studio-app/.*.*.*.*/wmapp"/>
+            <substitution expression="_cdnUrl_/wmapp"/>
+        </replaceregexp>
+    </target>
+
+    <target name="init" depends="copy-libs-jar,copy-wm-project-properties,cdnUrl-replace"></target>
+</project>

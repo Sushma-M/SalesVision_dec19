@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service xmlns="http://www.activegrid.com/namespaces/ServiceDefinitions/1.0" id="securityService" class="com.wavemaker.runtime.security.SecurityService" CRUDService="false" type="SecurityServiceType" springFile="securityService.spring.xml">
+    <operation name="getUserId">
+        <return typeRef="java.lang.String" isList="false"/>
+    </operation>
+    <operation name="logout"/>
+    <operation name="isSecurityEnabled">
+        <return typeRef="java.lang.Boolean" isList="false"/>
+    </operation>
+    <operation name="isAuthenticated">
+        <return typeRef="boolean" isList="false"/>
+    </operation>
+    <operation name="getCASProxyTicket">
+        <parameter name="serviceUrl" typeRef="java.lang.String" isList="false"/>
+        <return typeRef="java.lang.String" isList="false"/>
+    </operation>
+    <operation name="getTenantId">
+        <return typeRef="int" isList="false"/>
+    </operation>
+    <operation name="getUserRoles">
+        <return typeRef="java.lang.String" isList="true"/>
+    </operation>
+    <operation name="getUserName">
+        <return typeRef="java.lang.String" isList="false"/>
+    </operation>
+    <dataobjects/>
+</service>

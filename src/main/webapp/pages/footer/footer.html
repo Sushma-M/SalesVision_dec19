@@ -1,0 +1,19 @@
+<wm-partial layouttype="blank" columns="1" data-ng-controller="footerPageController" name="footer" type="footer"> 
+    <wm-layoutgrid rows="1" columns="3" height="auto" name="footerlayout"> 
+        <wm-gridrow name="footerrow"> 
+            <wm-gridcolumn name="footerleft" verticalalign="bottom"> 
+                <wm-picture picturesource="resources/images/logos/Android/wavemaker_36x36.png" name="wmLogo"></wm-picture> 
+                <wm-label caption="Powered by WaveMaker" textalign="left" name="poweredby"></wm-label> 
+            </wm-gridcolumn> 
+            <wm-gridcolumn name="footercenter" verticalalign="bottom" class="help" horizontalalign="center"> 
+                <wm-anchor caption="How to use ?" name="helptext" hyperlink="http://dev.wavemaker.com/docs/studio/samples/" color="white" target="_blank" horizontalalign="center"></wm-anchor> 
+            </wm-gridcolumn> 
+            <wm-gridcolumn horizontalalign="right" verticalalign="bottom" name="footerright"> 
+                <wm-anchor caption="© Copyright 2014 National Sales Dashboard" textalign="right" name="copyright" on-click="Widgets.copyrightdialog.open()" color="white"></wm-anchor> 
+            </wm-gridcolumn> 
+        </wm-gridrow> 
+    </wm-layoutgrid> 
+    <wm-view class="dialog-view" name="view1"> 
+        <wm-alertdialog name="copyrightdialog" title="Copyright &amp; Terms of use" iconname="copyright-mark" alerttype="information" message="The information contained in this website is merely for general information purposes. The information is provided by WaveMaker and we make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability or availability with respect to the website or the information, products, services, or related graphics contained on the website for any purpose. Any reliance you place on such information is therefore strictly at your own risk." class="copyright-dialog"></wm-alertdialog> 
+    </wm-view> 
+</wm-partial>

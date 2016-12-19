@@ -1,0 +1,21 @@
+.dashboard-filter {
+    padding: 8px !important;
+}
+[name='productsChart'] {
+    background: -webkit-linear-gradient(left, #feffff 10%, #7ECFFA 100%);
+    /* Webkit (Chrome 11+) */
+    background: -webkit-linear-gradient(left, #feffff 10%, #7ECFFA 100%);
+    /* Mozilla Firefox */
+    background: -moz-linear-gradient(left, #feffff 10%, #7ECFFA 100%);
+    /* Opera */
+    background: -o-linear-gradient(left, #feffff 10%, #7ECFFA 100%);
+    /* IE10 Consumer Preview */
+    background: -ms-linear-gradient(left, #feffff 10%, #7ECFFA 100%);
+    /* W3C Markup, IE10 Release Preview */
+    background: linear-gradient(to right, #feffff 10%, #7ECFFA 100%);
+    /* IE9 */
+    filter: progid: DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#feffff, endColorstr=#7ECFFA);
+    /* IE6 & IE7 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorStr='#feffff', EndColorStr='#7ECFFA')";
+    /* IE8, IE9 */
+}

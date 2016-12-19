@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service xmlns="http://www.activegrid.com/namespaces/ServiceDefinitions/1.0" id="salesdb" CRUDService="true" type="DataService" springFile="salesdb.spring.xml">
+    <operation operationType="nativequery" name="customersRatio">
+        <parameter name="year" typeRef="java.lang.Integer" isList="false"/>
+        <parameter name="month" typeRef="java.lang.Integer" isList="false"/>
+        <return typeRef="salesdbcustomersRatiortnType" isList="false"/>
+    </operation>
+    <operation operationType="nativequery" name="eachRepCustomerWiseSales">
+        <parameter name="id" typeRef="java.lang.Integer" isList="false"/>
+        <return typeRef="salesdbeachRepCustomerWiseSalesrtnType" isList="false"/>
+    </operation>
+    <operation operationType="nativequery" name="leadsByChannel">
+        <parameter name="channel" typeRef="java.lang.Integer" isList="false"/>
+        <return typeRef="salesdbleadsByChannelrtnType" isList="false"/>
+    </operation>
+    <operation operationType="nativequery" name="leadsCount">
+        <parameter name="channel" typeRef="java.lang.Integer" isList="false"/>
+        <return typeRef="salesdbleadsCountrtnType" isList="false"/>
+    </operation>
+    <operation operationType="nativequery" name="repsCount">
+        <parameter name="channel" typeRef="java.lang.Integer" isList="false"/>
+        <return typeRef="salesdbrepsCountrtnType" isList="false"/>
+    </operation>
+    <operation operationType="nativequery" name="revenueHeatMap">
+        <parameter name="year" typeRef="java.lang.Integer" isList="false"/>
+        <parameter name="month" typeRef="java.lang.Integer" isList="false"/>
+        <return typeRef="salesdbrevenueHeatMaprtnType" isList="false"/>
+    </operation>
+    <operation operationType="nativequery" name="salesByChannels">
+        <parameter name="year" typeRef="java.lang.Integer" isList="false"/>
+        <parameter name="month" typeRef="java.lang.Integer" isList="false"/>
+        <return typeRef="salesdbsalesByChannelsrtnType" isList="false"/>
+    </operation>
+    <operation operationType="nativequery" name="salesByEachRep">
+        <parameter name="id" typeRef="java.lang.Integer" isList="false"/>
+        <return typeRef="salesdbsalesByEachReprtnType" isList="false"/>
+    </operation>
+    <operation operationType="nativequery" name="salesByReps">
+        <parameter name="channel" typeRef="java.lang.Integer" isList="false"/>
+        <return typeRef="salesdbsalesByRepsrtnType" isList="false"/>
+    </operation>
+    <operation operationType="nativequery" name="salesRevenueAndCount">
+        <parameter name="channel" typeRef="java.lang.Integer" isList="false"/>
+        <return typeRef="salesdbsalesRevenueAndCountrtnType" isList="false"/>
+    </operation>
+    <operation operationType="nativequery" name="topTrendingProducts">
+        <parameter name="year" typeRef="java.lang.Integer" isList="false"/>
+        <parameter name="month" typeRef="java.lang.Integer" isList="false"/>
+        <return typeRef="salesdbtopTrendingProductsrtnType" isList="false"/>
+    </operation>
+    <operation operationType="nativequery" name="weeklyConverted">
+        <parameter name="year" typeRef="java.lang.Integer" isList="false"/>
+        <parameter name="month" typeRef="java.lang.Integer" isList="false"/>
+        <return typeRef="salesdbweeklyConvertedrtnType" isList="false"/>
+    </operation>
+    <operation operationType="nativequery" name="weeklyFollowUps">
+        <parameter name="year" typeRef="java.lang.Integer" isList="false"/>
+        <parameter name="month" typeRef="java.lang.Integer" isList="false"/>
+        <return typeRef="salesdbweeklyFollowUpsrtnType" isList="false"/>
+    </operation>
+    <operation operationType="nativequery" name="weeklyLeads">
+        <parameter name="year" typeRef="java.lang.Integer" isList="false"/>
+        <parameter name="month" typeRef="java.lang.Integer" isList="false"/>
+        <return typeRef="salesdbweeklyLeadsrtnType" isList="false"/>
+    </operation>
+    <operation operationType="nativequery" name="weeklyQuotes">
+        <parameter name="year" typeRef="java.lang.Integer" isList="false"/>
+        <parameter name="month" typeRef="java.lang.Integer" isList="false"/>
+        <return typeRef="salesdbweeklyQuotesrtnType" isList="false"/>
+    </operation>
+    <operation operationType="nativequery" name="weeklySales">
+        <parameter name="year" typeRef="java.lang.Integer" isList="false"/>
+        <parameter name="month" typeRef="java.lang.Integer" isList="false"/>
+        <return typeRef="salesdbweeklySalesrtnType" isList="false"/>
+    </operation>
+    <dataobjects>
+        <dataobject javaType="com.salesdb.Channels">
+            <element name="id" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="name" typeRef="java.lang.String" allowNull="true"/>
+            <element name="repses" typeRef="com.salesdb.Reps" isList="true" allowNull="true"/>
+        </dataobject>
+        <dataobject javaType="com.salesdb.Customers">
+            <element name="id" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="leadses" typeRef="com.salesdb.Leads" isList="true" allowNull="true"/>
+            <element name="name" typeRef="java.lang.String" allowNull="true"/>
+            <element name="stateId" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="states" typeRef="com.salesdb.States" allowNull="true"/>
+        </dataobject>
+        <dataobject javaType="com.salesdb.FollowUps">
+            <element name="entryDate" typeRef="java.util.Date" allowNull="true"/>
+            <element name="id" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="quoteId" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="quotes" typeRef="com.salesdb.Quotes" allowNull="true"/>
+        </dataobject>
+        <dataobject javaType="com.salesdb.Leads">
+            <element name="customerId" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="customers" typeRef="com.salesdb.Customers" allowNull="true"/>
+            <element name="entryDate" typeRef="java.util.Date" allowNull="true"/>
+            <element name="id" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="quoteses" typeRef="com.salesdb.Quotes" isList="true" allowNull="true"/>
+        </dataobject>
+        <dataobject javaType="com.salesdb.Products">
+            <element name="id" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="name" typeRef="java.lang.String" allowNull="true"/>
+            <element name="saleses" typeRef="com.salesdb.Sales" isList="true" allowNull="true"/>
+        </dataobject>
+        <dataobject javaType="com.salesdb.Quotes">
+            <element name="entryDate" typeRef="java.util.Date" allowNull="true"/>
+            <element name="estimatedSale" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="followUpses" typeRef="com.salesdb.FollowUps" isList="true" allowNull="true"/>
+            <element name="id" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="leadId" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="leads" typeRef="com.salesdb.Leads" allowNull="true"/>
+            <element name="repId" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="reps" typeRef="com.salesdb.Reps" allowNull="true"/>
+            <element name="saleses" typeRef="com.salesdb.Sales" isList="true" allowNull="true"/>
+        </dataobject>
+        <dataobject javaType="com.salesdb.Reps">
+            <element name="channelType" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="channels" typeRef="com.salesdb.Channels" allowNull="true"/>
+            <element name="city" typeRef="java.lang.String" allowNull="true"/>
+            <element name="id" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="name" typeRef="java.lang.String" allowNull="true"/>
+            <element name="password" typeRef="java.lang.String" allowNull="true"/>
+            <element name="picurl" typeRef="java.lang.String" allowNull="true"/>
+            <element name="quoteses" typeRef="com.salesdb.Quotes" isList="true" allowNull="true"/>
+            <element name="role" typeRef="java.lang.String" allowNull="true"/>
+            <element name="state" typeRef="java.lang.String" allowNull="true"/>
+            <element name="street" typeRef="java.lang.String" allowNull="true"/>
+            <element name="taskses" typeRef="com.salesdb.Tasks" isList="true" allowNull="true"/>
+            <element name="zip" typeRef="java.lang.String" allowNull="true"/>
+        </dataobject>
+        <dataobject javaType="com.salesdb.Sales">
+            <element name="entryDate" typeRef="java.util.Date" allowNull="true"/>
+            <element name="id" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="isRenewal" typeRef="java.lang.Boolean" allowNull="true"/>
+            <element name="productId" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="products" typeRef="com.salesdb.Products" allowNull="true"/>
+            <element name="quoteId" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="quotes" typeRef="com.salesdb.Quotes" allowNull="true"/>
+            <element name="sales" typeRef="java.lang.Integer" allowNull="true"/>
+        </dataobject>
+        <dataobject javaType="com.salesdb.States">
+            <element name="abbrev" typeRef="java.lang.String" allowNull="true"/>
+            <element name="customerses" typeRef="com.salesdb.Customers" isList="true" allowNull="true"/>
+            <element name="id" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="name" typeRef="java.lang.String" allowNull="true"/>
+        </dataobject>
+        <dataobject javaType="com.salesdb.Tasks">
+            <element name="description" typeRef="java.lang.String" allowNull="true"/>
+            <element name="done" typeRef="java.lang.Boolean" allowNull="true"/>
+            <element name="duedate" typeRef="java.util.Date" allowNull="true"/>
+            <element name="id" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="repId" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="reps" typeRef="com.salesdb.Reps" allowNull="true"/>
+        </dataobject>
+        <dataobject javaType="com.wavemaker.runtime.data.expression.QueryFilter">
+            <element name="attributeName" typeRef="java.lang.String" allowNull="true"/>
+            <element name="attributeType" typeRef="java.lang.String" allowNull="true"/>
+            <element name="attributeValue" allowNull="true"/>
+            <element name="filterCondition" typeRef="java.lang.String" allowNull="true"/>
+        </dataobject>
+        <dataobject javaType="com.wavemaker.runtime.data.model.CustomProcedure">
+            <element name="procedureParams" typeRef="com.wavemaker.runtime.data.model.CustomProcedureParam" isList="true" allowNull="true"/>
+            <element name="procedureStr" typeRef="java.lang.String" allowNull="true"/>
+        </dataobject>
+        <dataobject javaType="com.wavemaker.runtime.data.model.CustomQuery">
+            <element name="nativeSql" typeRef="java.lang.Boolean" allowNull="true"/>
+            <element name="queryParams" typeRef="com.wavemaker.runtime.data.model.CustomQueryParam" isList="true" allowNull="true"/>
+            <element name="queryStr" typeRef="java.lang.String" allowNull="true"/>
+        </dataobject>
+        <dataobject javaType="salesdbcustomersRatiortnType"/>
+        <dataobject javaType="salesdbeachRepCustomerWiseSalesrtnType"/>
+        <dataobject javaType="salesdbleadsByChannelrtnType"/>
+        <dataobject javaType="salesdbleadsCountrtnType"/>
+        <dataobject javaType="salesdbrepsCountrtnType"/>
+        <dataobject javaType="salesdbrevenueHeatMaprtnType"/>
+        <dataobject javaType="salesdbsalesByChannelsrtnType"/>
+        <dataobject javaType="salesdbsalesByEachReprtnType"/>
+        <dataobject javaType="salesdbsalesByRepsrtnType"/>
+        <dataobject javaType="salesdbsalesRevenueAndCountrtnType"/>
+        <dataobject javaType="salesdbtopTrendingProductsrtnType"/>
+        <dataobject javaType="salesdbweeklyConvertedrtnType"/>
+        <dataobject javaType="salesdbweeklyFollowUpsrtnType"/>
+        <dataobject javaType="salesdbweeklyLeadsrtnType"/>
+        <dataobject javaType="salesdbweeklyQuotesrtnType"/>
+        <dataobject javaType="salesdbweeklySalesrtnType"/>
+    </dataobjects>
+</service>

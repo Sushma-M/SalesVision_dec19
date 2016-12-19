@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<beans xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd" xmlns="http://www.springframework.org/schema/beans" xmlns:security="http://www.springframework.org/schema/security" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <bean class="com.wavemaker.runtime.security.SecurityService" id="securityService"/>
+    <bean class="com.wavemaker.runtime.security.controller.SecurityController" id="securityController"/>
+    <bean class="com.wavemaker.runtime.web.filter.SSLSecureFilter" id="sslSecureFilter"/>
+    <bean class="com.wavemaker.runtime.security.xss.filter.WMXSSFilter" id="xssFilter"/>
+    <bean class="com.wavemaker.runtime.data.spring.WMPropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>
+                    classpath:securityService.properties
+                </value>
+            </list>
+        </property>
+        <property name="ignoreUnresolvablePlaceholders" value="true"/>
+    </bean>
+    <bean class="com.wavemaker.runtime.security.config.WMAppSecurityConfig" id="WMAppSecurityConfig">
+        <property name="sslConfig" ref="sslConfig"/>
+        <property name="xssConfig" ref="xssConfig"/>
+        <property name="enforceSecurity">
+            <value>${enabled}</value>
+        </property>
+    </bean>
+    <bean class="com.wavemaker.studio.common.model.security.SSLConfig" id="sslConfig">
+        <property name="useSSL" value="${general.ssl.enabled}"/>
+        <property name="sslPort" value="${general.ssl.port}"/>
+    </bean>
+    <bean class="com.wavemaker.studio.common.model.security.XSSConfig" id="xssConfig">
+        <property name="enforceXssSecurity" value="${general.xss.enabled}"/>
+        <property name="policyFile" value="wm-xss-policies.xml"/>
+        <property name="xssFilterStrategy" value="NONE"/>
+    </bean>
+</beans>

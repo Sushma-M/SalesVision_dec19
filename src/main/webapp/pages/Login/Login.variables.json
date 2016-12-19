@@ -1,0 +1,31 @@
+{
+  "loginVariable" : {
+    "_id" : "wm-wm.LoginVariable1398237232072",
+    "name" : "loginVariable",
+    "owner" : "Page",
+    "category" : "wm.LoginVariable",
+    "dataBinding" : [ {
+      "target" : "username",
+      "value" : "bind:Widgets.usernametext.datavalue"
+    }, {
+      "target" : "password",
+      "value" : "bind:Widgets.passwordtext.datavalue"
+    }, {
+      "isList" : false,
+      "target" : "rememberme",
+      "value" : "bind:Widgets.remembermeCheck.datavalue",
+      "type" : "boolean"
+    } ],
+    "dataSet" : {
+      "username" : "",
+      "password" : ""
+    },
+    "type" : "string",
+    "saveInPhonegap" : false,
+    "onError" : "loginVariableonError($event, $scope)",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "useDefaultSuccessHandler" : true
+  }
+}

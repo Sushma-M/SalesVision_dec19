@@ -1,0 +1,13 @@
+<wm-page layouttype="one-column" columns="1" data-ng-controller="LocationsPageController" name="page1"> 
+    <wm-header content="header" name="header1"></wm-header> 
+    <wm-top-nav content="topnav" name="top-nav1"></wm-top-nav> 
+    <wm-content name="content1"> 
+        <wm-row name="row1"> 
+            <wm-column class="app-content-column" columnwidth="12" name="column1"> 
+                <wm-label caption="Locations" name="locations" width="100%" fontsize="1.5" fontunit="em" margintop="1" marginunit="em"></wm-label> 
+                <wm-prefab prefabname="googlemaps" name="prefab1" zoom="3" locations="bind:Variables.usMapLocations.dataSet" info="info" location="coords" height="600"></wm-prefab> 
+            </wm-column> 
+        </wm-row> 
+    </wm-content> 
+    <wm-footer content="footer" name="footer1"></wm-footer> 
+</wm-page>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service xmlns="http://www.activegrid.com/namespaces/ServiceDefinitions/1.0" id="sp_insert_customer_repo_list" type="RestService" springFile="sp_insert_customer_repo_list.spring.xml">
+    <operation name="invoke">
+        <parameter name="Accept" typeRef="java.lang.String" isList="false"/>
+        <parameter name="Authorization" typeRef="java.lang.String" isList="false"/>
+        <parameter name="RequestBody" typeRef="java.lang.String" isList="false"/>
+        <return typeRef="sp_insert_customer_repo_list.RootResponse" isList="false"/>
+    </operation>
+    <dataobjects>
+        <dataobject javaType="sp_insert_customer_repo_list.AttachmentFiles" name="AttachmentFiles" supportsQuickData="false">
+            <element name="__deferred" typeRef="sp_insert_customer_repo_list.__deferred" isList="false" allowNull="false"/>
+        </dataobject>
+        <dataobject javaType="sp_insert_customer_repo_list.FirstUniqueAncestorSecurableObject" name="FirstUniqueAncestorSecurableObject" supportsQuickData="false">
+            <element name="__deferred" typeRef="sp_insert_customer_repo_list.__deferred" isList="false" allowNull="false"/>
+        </dataobject>
+        <dataobject javaType="sp_insert_customer_repo_list.File" name="File" supportsQuickData="false">
+            <element name="__deferred" typeRef="sp_insert_customer_repo_list.__deferred" isList="false" allowNull="false"/>
+        </dataobject>
+        <dataobject javaType="sp_insert_customer_repo_list.d" name="d" supportsQuickData="false">
+            <element name="GUID" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="FirstUniqueAncestorSecurableObject" typeRef="sp_insert_customer_repo_list.FirstUniqueAncestorSecurableObject" isList="false" allowNull="false"/>
+            <element name="Created" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="Modified" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="EditorId" typeRef="java.lang.Integer" isList="false" allowNull="false"/>
+            <element name="ID" typeRef="java.lang.Integer" isList="false" allowNull="false"/>
+            <element name="FieldValuesAsText" typeRef="sp_insert_customer_repo_list.FieldValuesAsText" isList="false" allowNull="false"/>
+            <element name="ParentList" typeRef="sp_insert_customer_repo_list.ParentList" isList="false" allowNull="false"/>
+            <element name="AttachmentFiles" typeRef="sp_insert_customer_repo_list.AttachmentFiles" isList="false" allowNull="false"/>
+            <element name="Folder" typeRef="sp_insert_customer_repo_list.Folder" isList="false" allowNull="false"/>
+            <element name="File" typeRef="sp_insert_customer_repo_list.File" isList="false" allowNull="false"/>
+            <element name="RoleAssignments" typeRef="sp_insert_customer_repo_list.RoleAssignments" isList="false" allowNull="false"/>
+            <element name="AuthorId" typeRef="java.lang.Integer" isList="false" allowNull="false"/>
+            <element name="OData__UIVersionString" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="Attachments" typeRef="java.lang.Boolean" isList="false" allowNull="false"/>
+            <element name="FieldValuesForEdit" typeRef="sp_insert_customer_repo_list.FieldValuesForEdit" isList="false" allowNull="false"/>
+            <element name="CustomerName" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="ContentTypeId" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="Title" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="FieldValuesAsHtml" typeRef="sp_insert_customer_repo_list.FieldValuesAsHtml" isList="false" allowNull="false"/>
+            <element name="GetDlpPolicyTip" typeRef="sp_insert_customer_repo_list.GetDlpPolicyTip" isList="false" allowNull="false"/>
+            <element name="FileSystemObjectType" typeRef="java.lang.Integer" isList="false" allowNull="false"/>
+            <element name="Id" typeRef="java.lang.Integer" isList="false" allowNull="false"/>
+            <element name="__metadata" typeRef="sp_insert_customer_repo_list.__metadata" isList="false" allowNull="false"/>
+            <element name="ContentType" typeRef="sp_insert_customer_repo_list.ContentType" isList="false" allowNull="false"/>
+        </dataobject>
+        <dataobject javaType="sp_insert_customer_repo_list.__deferred" name="__deferred" supportsQuickData="false">
+            <element name="uri" typeRef="java.lang.String" isList="false" allowNull="false"/>
+        </dataobject>
+        <dataobject javaType="sp_insert_customer_repo_list.RootRequest" name="RootRequest" supportsQuickData="false">
+            <element name="CustomerName" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="Title" typeRef="java.lang.String" isList="false" allowNull="false"/>
+        </dataobject>
+        <dataobject javaType="sp_insert_customer_repo_list.RoleAssignments" name="RoleAssignments" supportsQuickData="false">
+            <element name="__deferred" typeRef="sp_insert_customer_repo_list.__deferred" isList="false" allowNull="false"/>
+        </dataobject>
+        <dataobject javaType="sp_insert_customer_repo_list.ParentList" name="ParentList" supportsQuickData="false">
+            <element name="__deferred" typeRef="sp_insert_customer_repo_list.__deferred" isList="false" allowNull="false"/>
+        </dataobject>
+        <dataobject javaType="sp_insert_customer_repo_list.FieldValuesForEdit" name="FieldValuesForEdit" supportsQuickData="false">
+            <element name="__deferred" typeRef="sp_insert_customer_repo_list.__deferred" isList="false" allowNull="false"/>
+        </dataobject>
+        <dataobject javaType="sp_insert_customer_repo_list.FieldValuesAsHtml" name="FieldValuesAsHtml" supportsQuickData="false">
+            <element name="__deferred" typeRef="sp_insert_customer_repo_list.__deferred" isList="false" allowNull="false"/>
+        </dataobject>
+        <dataobject javaType="sp_insert_customer_repo_list.GetDlpPolicyTip" name="GetDlpPolicyTip" supportsQuickData="false">
+            <element name="__deferred" typeRef="sp_insert_customer_repo_list.__deferred" isList="false" allowNull="false"/>
+        </dataobject>
+        <dataobject javaType="sp_insert_customer_repo_list.RootResponse" name="RootResponse" supportsQuickData="false">
+            <element name="d" typeRef="sp_insert_customer_repo_list.d" isList="false" allowNull="false"/>
+        </dataobject>
+        <dataobject javaType="sp_insert_customer_repo_list.ContentType" name="ContentType" supportsQuickData="false">
+            <element name="__deferred" typeRef="sp_insert_customer_repo_list.__deferred" isList="false" allowNull="false"/>
+        </dataobject>
+        <dataobject javaType="sp_insert_customer_repo_list.__metadata" name="__metadata" supportsQuickData="false">
+            <element name="id" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="etag" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="type" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="uri" typeRef="java.lang.String" isList="false" allowNull="false"/>
+        </dataobject>
+        <dataobject javaType="sp_insert_customer_repo_list.Folder" name="Folder" supportsQuickData="false">
+            <element name="__deferred" typeRef="sp_insert_customer_repo_list.__deferred" isList="false" allowNull="false"/>
+        </dataobject>
+        <dataobject javaType="sp_insert_customer_repo_list.FieldValuesAsText" name="FieldValuesAsText" supportsQuickData="false">
+            <element name="__deferred" typeRef="sp_insert_customer_repo_list.__deferred" isList="false" allowNull="false"/>
+        </dataobject>
+    </dataobjects>
+</service>

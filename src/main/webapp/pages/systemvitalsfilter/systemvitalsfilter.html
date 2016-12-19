@@ -1,0 +1,12 @@
+<wm-partial data-ng-controller="systemvitalsfilterPageController" name="partial1" class="dashboard-filter" type="left-panel"> 
+    <wm-composite widget="select" name="composite1" paddingtop="1" paddingunit="em"> 
+        <wm-label class="col-md-4" caption="Year" name="label1"></wm-label> 
+        <wm-select name="yearFilter" placeholder="Select Year" width="12em" dataset="bind:Variables.yearsList.dataSet" datafield="dataValue" displayfield="name" datavalue="2014"></wm-select> 
+    </wm-composite> 
+    <wm-composite widget="select" name="composite1"> 
+        <wm-label class="col-md-4" caption="Month" name="label1"></wm-label> 
+        <wm-select name="monthFilter" placeholder="Select Month" width="12em" dataset="bind:Variables.monthsList.dataSet" datafield="dataValue" displayfield="name" datavalue="07"></wm-select> 
+    </wm-composite> 
+    <wm-button name="button2" caption="Reset" iconname="remove-sign" on-click="clear()" class="btn-secondary"></wm-button> 
+    <wm-button name="button1" caption="Filter" iconname="filter" on-click="filter()" class="btn-primary"></wm-button> 
+</wm-partial>

@@ -1,0 +1,11 @@
+.tile-panel {
+    background-color: rgb(239, 239, 239);
+    border: 1px solid rgb(219, 219, 219);
+    border-radius: 4px;
+    margin: 1em auto;
+    padding: 0.6em 0;
+    width: 72%;
+}
+.dashboard-filter {
+    padding: 8px !important;
+}

@@ -1,0 +1,20 @@
+<wm-page data-ng-controller="PagePageController" pagetitle="Page" name="page1"> 
+    <wm-header content="header" name="header1"></wm-header> 
+    <wm-content name="content1"> 
+        <wm-page-content columnwidth="12" name="page_content1"> 
+            <wm-composite name="composite1"> 
+                <wm-label class="col-md-3" name="label1" caption="bind:Variables.HrdbEmployeeData.dataSet.data[$i].lastname"></wm-label> 
+                <wm-container class="col-md-9" name="container1"> 
+                    <wm-text name="text1"></wm-text> 
+                </wm-container> 
+            </wm-composite> 
+            <wm-composite name="composite2"> 
+                <wm-label class="col-md-3" name="label2"></wm-label> 
+                <wm-container class="col-md-9" name="container2"> 
+                    <wm-text name="text2"></wm-text> 
+                </wm-container> 
+            </wm-composite> 
+        </wm-page-content> 
+    </wm-content> 
+    <wm-footer content="footer" name="footer1"></wm-footer> 
+</wm-page>

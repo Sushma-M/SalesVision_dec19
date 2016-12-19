@@ -1,0 +1,50 @@
+<wm-page name="page1" data-ng-controller="DashboardPageController" columns="2" layouttype="two-column"> 
+    <wm-header name="header" content="header" height="auto"></wm-header> 
+    <wm-top-nav name="top-nav" content="topnav"></wm-top-nav> 
+    <wm-content name="content1"> 
+        <wm-row name="row1"> 
+            <wm-left-panel contentwidth="2" name="leftpanel" content="systemvitalsfilter"></wm-left-panel> 
+            <wm-column class="app-content-column" name="mainContent" paddingright="15" paddingleft="15" columnwidth="12"> 
+                <wm-layoutgrid name="layoutgrid1" columns="3" height="auto" rows="3"> 
+                    <wm-gridrow name="gridrow2"> 
+                        <wm-gridcolumn name="gridcolumn1" paddingright="1" paddingleft="1" columnwidth="6" paddingunit="em" paddingbottom="1" paddingtop="1"> 
+                            <wm-label caption="Weekly Sales" name="label4" width="100%" color="#929292"></wm-label> 
+                            <wm-chart type="Area" name="weeklySales" height="360" dataset="bind:Variables.weeklySales.dataSet.content" xaxislabel="Week" xaxisdatakey="WEEK" yaxislabel="Sales" yaxisdatakey="SALES" theme="Retro"></wm-chart> 
+                        </wm-gridcolumn> 
+                        <wm-gridcolumn name="gridcolumn2" paddingright="1" paddingleft="1" columnwidth="3" paddingunit="em" paddingbottom="1" paddingtop="1"> 
+                            <wm-label caption="Leads" name="label4" width="100%" color="#929292"></wm-label> 
+                            <wm-chart type="Line" name="weeklyLeads" height="160" offsetbottom="40" offsetleft="30" offsettop="0" offsetright="20" dataset="bind:Variables.weeklyLeads.dataSet.content" xaxislabel="Week" xaxisdatakey="WEEK" yaxislabel="Leads" yaxisdatakey="LEADS" theme="Annabelle"></wm-chart> 
+                            <wm-label caption="Follow-ups" name="label4" width="100%" margintop="1" marginunit="em" color="#929292"></wm-label> 
+                            <wm-chart type="Line" name="weeklyFollowUps" height="160" offsetbottom="40" offsetleft="30" offsettop="0" offsetright="20" dataset="bind:Variables.weeklyFollowUps.dataSet.content" xaxislabel="Week" xaxisdatakey="WEEK" yaxislabel="Follow Ups" yaxisdatakey="FOLLOWUPS" theme="Retro"></wm-chart> 
+                        </wm-gridcolumn> 
+                        <wm-gridcolumn name="gridcolumn10" paddingright="1" paddingleft="1" columnwidth="3" paddingunit="em" paddingbottom="1" paddingtop="1"> 
+                            <wm-label caption="Quotes" name="label4" width="100%" color="#929292"></wm-label> 
+                            <wm-chart type="Line" name="weeklyQuotes" height="160" offsetbottom="40" offsetleft="30" offsetright="20" offsettop="0" dataset="bind:Variables.weeklyQuotes.dataSet.content" xaxislabel="Week" xaxisdatakey="WEEK" yaxislabel="Quotes" yaxisdatakey="QUOTES" theme="Azure"></wm-chart> 
+                            <wm-label caption="Converted" name="label4" width="100%" margintop="1" marginunit="em" color="#929292"></wm-label> 
+                            <wm-chart type="Line" name="weeklyConverted" height="160" offsetbottom="40" offsetleft="30" offsettop="0" offsetright="20" dataset="bind:Variables.weeklyConverted.dataSet.content" xaxislabel="Week" xaxisdatakey="WEEK" yaxislabel="Sales" yaxisdatakey="SALES" theme="Orient"></wm-chart> 
+                        </wm-gridcolumn> 
+                    </wm-gridrow> 
+                    <wm-gridrow name="gridrow3"> 
+                        <wm-gridcolumn name="gridcolumn4" paddingright="1" paddingleft="1" paddingunit="em" paddingbottom="1" paddingtop="1"> 
+                            <wm-label caption="Channels" name="label4" width="100%" color="#929292"></wm-label> 
+                            <wm-chart type="Donut" theme="Terrestrial" name="salesByChannels" height="200" dataset="bind:Variables.salesByChannels.dataSet.content" xaxisdatakey="CHANNEL" yaxisdatakey="PERCENT" offsettop="0" offsetright="10" offsetleft="10" offsetbottom="15"></wm-chart> 
+                        </wm-gridcolumn> 
+                        <wm-gridcolumn name="gridcolumn5" paddingright="1" paddingleft="1" paddingunit="em" paddingbottom="1" paddingtop="1"> 
+                            <wm-label caption="Customers" name="label4" width="100%" color="#929292"></wm-label> 
+                            <wm-chart type="Donut" theme="Azure" name="customersRatio" height="200" dataset="bind:Variables.customersRatio.dataSet.content" xaxisdatakey="TYPE" yaxisdatakey="PERCENT" offsettop="0" offsetleft="10" offsetright="10" offsetbottom="10"></wm-chart> 
+                        </wm-gridcolumn> 
+                        <wm-gridcolumn name="gridcolumn11" paddingright="1" paddingleft="1" paddingunit="em" paddingbottom="1" paddingtop="1"> 
+                            <wm-label caption="Products" name="label4" width="100%" color="#929292"></wm-label> 
+                            <wm-chart type="Bar" name="productsChart" height="200" backgroundgradient="linear-gradient(left, #feffff 10%,#7ECFFA 100%)" dataset="bind:Variables.topTrendingProducts.dataSet.content" offsettop="0" offsetleft="30" offsetright="20" offsetbottom="40" yaxislabel="Sales" yaxisdatakey="SALES" xaxislabel="Products" xaxisdatakey="PRODUCT" showlabels="true" tooltips="true" theme="Terrestrial"></wm-chart> 
+                        </wm-gridcolumn> 
+                    </wm-gridrow> 
+                </wm-layoutgrid> 
+                <wm-panel name="revenueHeatMapPanel" paddingright="1" paddingleft="1" paddingunit="em" paddingbottom="1" paddingtop="1"> 
+                    <wm-label name="label4" width="100%" color="#8E8E8E" caption="Revenue Heat Map"></wm-label> 
+                    <wm-panel name="revenueHeatMap" width="100%" class="app-chart"></wm-panel> 
+                </wm-panel> 
+            </wm-column> 
+        </wm-row> 
+    </wm-content> 
+    <wm-footer name="footer" content="footer"></wm-footer> 
+</wm-page>

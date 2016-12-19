@@ -1,0 +1,43 @@
+{
+	"methods": [{
+		"operationType": null,
+		"name": "echo",
+		"parameters": [{
+			"name": "contents",
+			"type": "java.lang.String"
+		}, {
+			"name": "contentType",
+			"type": "java.lang.String"
+		}, {
+			"name": "fileName",
+			"type": "java.lang.String"
+		}],
+		"returnType": "com.wavemaker.runtime.server.DownloadResponse"
+	}, {
+		"operationType": null,
+		"name": "getLocalHostIP",
+		"parameters": null,
+		"returnType": "java.lang.String"
+	}, {
+		"operationType": null,
+		"name": "getServerTimeOffset",
+		"parameters": null,
+		"returnType": "int"
+	}, {
+		"operationType": null,
+		"name": "remoteRESTCall",
+		"parameters": [{
+			"name": "remoteURL",
+			"type": "java.lang.String"
+		}, {
+			"name": "params",
+			"type": "java.lang.String"
+		}, {
+			"name": "method",
+			"type": "java.lang.String"
+		}],
+		"returnType": "java.lang.String"
+	}],
+	"serviceURL": "waveMakerService.json",
+	"serviceType": "JSON-RPC"
+}

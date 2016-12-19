@@ -1,0 +1,193 @@
+{
+  "usMapLocations" : {
+    "_id" : "wm-wm.Variable1402638997053",
+    "name" : "usMapLocations",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : [ {
+      "coords" : {
+        "lng" : -86.279118,
+        "lat" : 32.361538
+      },
+      "info" : "Montgomery, Alabama"
+    }, {
+      "coords" : {
+        "lng" : -134.41974,
+        "lat" : 58.301935
+      },
+      "info" : "Juneau, Alaska"
+    }, {
+      "coords" : {
+        "lng" : -112.073844,
+        "lat" : 33.448457
+      },
+      "info" : "Phoenix, Arizona"
+    }, {
+      "coords" : {
+        "lng" : -92.331122,
+        "lat" : 34.736009
+      },
+      "info" : "Little Rock, Arkansas"
+    }, {
+      "coords" : {
+        "lng" : -121.468926,
+        "lat" : 38.555605
+      },
+      "info" : "Sacramento, California"
+    }, {
+      "coords" : {
+        "lng" : -104.984167,
+        "lat" : 39.7391667
+      },
+      "info" : "Denver, Colorado"
+    }, {
+      "coords" : {
+        "lng" : -72.677,
+        "lat" : 41.767
+      },
+      "info" : "Hartford, Connecticut"
+    }, {
+      "coords" : {
+        "lng" : -75.526755,
+        "lat" : 39.161921
+      },
+      "info" : "Dover, Delaware"
+    }, {
+      "coords" : {
+        "lng" : -84.27277,
+        "lat" : 30.4518
+      },
+      "info" : "Tallahassee, Florida"
+    }, {
+      "coords" : {
+        "lng" : -84.39,
+        "lat" : 33.76
+      },
+      "info" : "Atlanta, Georgia"
+    }, {
+      "coords" : {
+        "lng" : -157.826182,
+        "lat" : 21.30895
+      },
+      "info" : "Honolulu, Hawaii"
+    }, {
+      "coords" : {
+        "lng" : -116.237651,
+        "lat" : 43.613739
+      },
+      "info" : "Boise, Idaho"
+    }, {
+      "coords" : {
+        "lng" : -89.650373,
+        "lat" : 39.78325
+      },
+      "info" : "Springfield, Illinois"
+    }, {
+      "coords" : {
+        "lng" : -86.147685,
+        "lat" : 39.790942
+      },
+      "info" : "Indianapolis, Indiana"
+    }, {
+      "coords" : {
+        "lng" : -93.620866,
+        "lat" : 41.590939
+      },
+      "info" : "Des Moines, Iowa"
+    }, {
+      "coords" : {
+        "lng" : -95.69,
+        "lat" : 39.04
+      },
+      "info" : "Topeka, Kansas"
+    }, {
+      "coords" : {
+        "lng" : -84.86311,
+        "lat" : 38.197274
+      },
+      "info" : "Frankfort, Kentucky"
+    }, {
+      "coords" : {
+        "lng" : -91.140229,
+        "lat" : 30.45809
+      },
+      "info" : "Baton Rouge, Louisiana"
+    }, {
+      "coords" : {
+        "lng" : -69.765261,
+        "lat" : 44.323535
+      },
+      "info" : "Augusta, Augusta"
+    }, {
+      "coords" : {
+        "lng" : -76.501157,
+        "lat" : 38.972945
+      },
+      "info" : "Annapolis, Maryland"
+    }, {
+      "coords" : {
+        "lng" : -71.0275,
+        "lat" : 42.2352
+      },
+      "info" : "Boston, Massachusetts"
+    }, {
+      "coords" : {
+        "lng" : -84.5467,
+        "lat" : 42.7335
+      },
+      "info" : "Lansing, Michigan"
+    }, {
+      "coords" : {
+        "lng" : -93.094,
+        "lat" : 44.95
+      },
+      "info" : "Saint Paul, Minnesota"
+    }, {
+      "coords" : {
+        "lng" : -90.207,
+        "lat" : 32.32
+      },
+      "info" : "Jackson, Mississippi"
+    }, {
+      "coords" : {
+        "lng" : -92.189283,
+        "lat" : 38.572954
+      },
+      "info" : "Jefferson City, Missouri"
+    }, {
+      "coords" : {
+        "lng" : -112.027031,
+        "lat" : 46.595805
+      },
+      "info" : "Helana, Montana"
+    }, {
+      "coords" : {
+        "lng" : -96.675345,
+        "lat" : 40.809868
+      },
+      "info" : "Lincoln, Nebraska"
+    }, {
+      "coords" : {
+        "lng" : -119.753877,
+        "lat" : 39.160949
+      },
+      "info" : "Carson City, Nevada"
+    }, {
+      "coords" : {
+        "lng" : -71.549127,
+        "lat" : 43.220093
+      },
+      "info" : "Concord, New Hampshire"
+    }, {
+      "coords" : {
+        "lng" : -74.756138,
+        "lat" : 40.221741
+      },
+      "info" : "Trenton, New Jersey"
+    } ],
+    "type" : "string",
+    "isList" : true,
+    "saveInPhonegap" : false
+  }
+}

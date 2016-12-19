@@ -1,0 +1,18 @@
+{
+  "name" : "hrdb",
+  "description" : "Queries for hrdb",
+  "queries" : [ {
+    "name" : "empCount",
+    "query" : "select count(*) from Employee",
+    "comment" : "",
+    "description" : null,
+    "nativeSql" : true,
+    "returnsSingleResult" : false,
+    "update" : false,
+    "queryParams" : [ ],
+    "outputType" : null,
+    "returnTypeMetadata" : {
+      "C1" : "java.math.BigInteger"
+    }
+  } ]
+}

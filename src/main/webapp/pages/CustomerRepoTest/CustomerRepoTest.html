@@ -1,0 +1,16 @@
+<wm-page data-ng-controller="CustomerRepoTestPageController" pagetitle="Customer Repo Test" name="page1"> 
+    <wm-header content="header" name="header1"></wm-header> 
+    <wm-top-nav content="topnav" name="top_nav1"></wm-top-nav> 
+    <wm-content name="content1"> 
+        <wm-page-content columnwidth="12" name="page_content1"> 
+            <wm-grid readonlygrid="true" title="CUSTOMERS LIST" dataset="bind:Variables.SalesdbCustomersData.dataSet" name="grid1" class="panel-default"> 
+                <wm-grid-column binding="id" caption="Id" type="integer" backgroundcolor="" textcolor="" primary-key="true" generator="identity" readonly="true" col-class="" col-ng-class="" search-placeholder="Search" disable-inline-editing="false" is-related-pk="false" pcdisplay="true" mobiledisplay="true"></wm-grid-column> 
+                <wm-grid-column binding="name" caption="Name" type="string" backgroundcolor="" textcolor="" primary-key="" readonly="true" col-class="" col-ng-class="" search-placeholder="Search" disable-inline-editing="false" is-related-pk="false" pcdisplay="true" mobiledisplay="true"></wm-grid-column> 
+                <wm-grid-column binding="custom" caption="Actions" type="custom" widget-type="button" textalignment="center" backgroundcolor="" textcolor="" primary-key="" col-class="" col-ng-class="" search-placeholder="Search" disable-inline-editing="false" is-related-pk="false" pcdisplay="true" mobiledisplay="false" readonly="false"> 
+                    <wm-button caption="" show="true" class="btn-sm btn-primary" iconname="glyphicon glyphicon-cloud" on-click="pushIntoSP(row.getProperty('id'), row.getProperty('name'))" data-ng-class=""></wm-button> 
+                </wm-grid-column> 
+            </wm-grid> 
+        </wm-page-content> 
+    </wm-content> 
+    <wm-footer content="footer" name="footer1"></wm-footer> 
+</wm-page>

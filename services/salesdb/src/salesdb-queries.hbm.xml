@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <sql-query name="customersRatio">
+    <![CDATA[
+      SELECT
+      CASE
+      WHEN is_renewal = TRUE THEN 'Renewal'
+      ELSE 'New'
+      END Type,
+      COUNT(*) Percent
+      FROM SALES
+      WHERE MONTH(entry_date) = 1 and year(entry_date) = 2014
+      GROUP BY Type
+    ]]>
+  </sql-query>
+  <sql-query name="eachRepCustomerWiseSales">
+    <![CDATA[
+      select c.name as CUSTOMER, sum(s.sales) as SALES from
+      quotes q join leads l on q.lead_id =l.id
+      join customers c on c.id = l.customer_id
+      join sales s on s.quote_id = q.id
+      where  q.rep_id = :id
+      group by c.id
+    ]]>
+  </sql-query>
+  <sql-query name="leadsByChannel">
+    <![CDATA[
+      SELECT WEEK(q.entry_date)+1 AS Week, count(*) AS Leads
+      FROM quotes q join reps r on q.rep_id = r.id
+      WHERE r.channel_type = :channel
+      GROUP BY Week
+      ORDER BY Week
+    ]]>
+  </sql-query>
+  <sql-query name="leadsCount">
+    <![CDATA[
+      SELECT COUNT(*) as LeadsCount
+      FROM   leads l, quotes q, reps r
+      WHERE q.lead_id = l.id and q.rep_id = r.id and r.channel_type = :channel
+    ]]>
+  </sql-query>
+  <sql-query name="repsCount">
+    <![CDATA[
+      SELECT COUNT(*) as RepsCount
+      FROM  reps r
+      WHERE r.channel_type = :channel
+    ]]>
+  </sql-query>
+  <sql-query name="revenueHeatMap">
+    <![CDATA[
+      SELECT usa.name State, sum(s.sales) Sales, count(c.id) Customers, count(l.id) Leads, count(q.id) Quotes
+      FROM sales s
+      JOIN quotes q ON q.id = s.quote_id
+      JOIN leads l ON q.lead_id = l.id
+      JOIN customers c ON l.customer_id = c.id
+      JOIN states usa ON usa.id = c.state_id
+      AND YEAR(s.entry_date) =  :year
+      AND MONTH(s.entry_date) = :month
+      GROUP BY State
+    ]]>
+  </sql-query>
+  <sql-query name="salesByChannels">
+    <![CDATA[
+      select c.name Channel, ROUND(sum(s.sales)*100/(SELECT sum(sales) FROM sales)) Percent
+      FROM sales s
+      inner join quotes q on q.id = s.quote_id
+      inner join reps r on r.id = q.rep_id
+      right outer join channels c on r.channel_type = c.id
+      WHERE YEAR(s.entry_date) =  :year
+      AND MONTH(s.entry_date) = :month
+      group by Channel
+    ]]>
+  </sql-query>
+  <sql-query name="salesByEachRep">
+    <![CDATA[
+      SELECT MONTHNAME(s.entry_date) AS MONTHNAME, count(*) AS SALES
+      FROM quotes q join reps r on q.rep_id = r.id
+      join sales s on s.quote_id =q.id
+      WHERE r.id =:id AND YEAR(s.entry_date) = YEAR(CURDATE())
+      GROUP BY MONTHNAME
+    ]]>
+  </sql-query>
+  <sql-query name="salesByReps">
+    <![CDATA[
+      select r.name Name, count(q.lead_id) Leads, sum(s.sales) Sales
+      FROM leads l
+      JOIN quotes q on q.lead_id = l.id
+      JOIN sales s on s.quote_id = q.id
+      RIGHT OUTER JOIN reps r on r.id = q.rep_id
+      WHERE r.channel_type = :channel
+      GROUP BY Name
+      ORDER BY Sales desc, Leads desc
+    ]]>
+  </sql-query>
+  <sql-query name="salesRevenueAndCount">
+    <![CDATA[
+      SELECT SUM(sales) as SalesRevenue, COUNT(sales) as TotalSales
+      FROM sales s,  quotes q, reps r
+      WHERE s.quote_id = q.id and q.rep_id = r.id and r.channel_type = :channel
+    ]]>
+  </sql-query>
+  <sql-query name="topTrendingProducts">
+    <![CDATA[
+      SELECT p.name as Product, s.sales as Sales
+      FROM Products p, Sales s
+      WHERE p.id = s.product_id
+      AND YEAR(s.entry_date) =  :year
+      AND MONTH(s.entry_date) = :month
+      ORDER BY Sales DESC
+    ]]>
+  </sql-query>
+  <sql-query name="weeklyConverted">
+    <![CDATA[
+      SELECT WEEK(entry_date)+1 AS Week, count(*) AS Sales
+      FROM sales
+      WHERE YEAR(entry_date) =  :year
+      AND MONTH(entry_date) = :month
+      GROUP BY Week
+      ORDER BY Week
+    ]]>
+  </sql-query>
+  <sql-query name="weeklyFollowUps">
+    <![CDATA[
+      SELECT WEEK(entry_date)+1 AS Week, count(*) AS FollowUps
+      FROM follow_ups
+      WHERE YEAR(entry_date) =  :year
+      AND MONTH(entry_date) = :month
+      GROUP BY Week
+      ORDER BY Week
+    ]]>
+  </sql-query>
+  <sql-query name="weeklyLeads">
+    <![CDATA[
+      SELECT WEEK(entry_date)+1 AS Week, count(*) AS Leads
+      FROM leads
+      WHERE YEAR(entry_date) =  :year
+      AND MONTH(entry_date) = :month
+      GROUP BY Week
+      ORDER BY Week
+    ]]>
+  </sql-query>
+  <sql-query name="weeklyQuotes">
+    <![CDATA[
+      SELECT WEEK(entry_date)+1 AS Week, count(*) AS Quotes
+      FROM quotes
+      WHERE YEAR(entry_date) =  :year
+      AND MONTH(entry_date) = :month
+      GROUP BY Week
+      ORDER BY Week
+    ]]>
+  </sql-query>
+  <sql-query name="weeklySales">
+    <![CDATA[
+      SELECT WEEK(s.entry_date)+1 AS Week, sum(s.sales) AS Sales
+      FROM sales s
+      WHERE YEAR(s.entry_date) =  :year
+      AND MONTH(s.entry_date) = :month
+      GROUP BY Week
+      ORDER BY Week
+    ]]>
+  </sql-query>
+</hibernate-mapping>

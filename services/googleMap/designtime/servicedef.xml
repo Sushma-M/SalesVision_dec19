@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service xmlns="http://www.activegrid.com/namespaces/ServiceDefinitions/1.0" id="googleMap" type="RestService" springFile="googleMap.spring.xml">
+    <operation name="invoke">
+        <parameter name="sensor" typeRef="java.lang.String" isList="false"/>
+        <parameter name="origin" typeRef="java.lang.String" isList="false"/>
+        <parameter name="destination" typeRef="java.lang.String" isList="false"/>
+        <return typeRef="googleMap.DirectionsResponse" isList="false"/>
+    </operation>
+    <dataobjects>
+        <dataobject javaType="googleMap.DirectionsResponse" name="DirectionsResponse" supportsQuickData="false">
+            <element name="status" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="route" typeRef="googleMap.route" isList="false" allowNull="false"/>
+            <element name="geocoded_waypoint" typeRef="googleMap.geocoded_waypointEntryItem" isList="true" allowNull="false"/>
+        </dataobject>
+        <dataobject javaType="googleMap.distance" name="distance" supportsQuickData="false">
+            <element name="text" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="value" typeRef="java.lang.Integer" isList="false" allowNull="false"/>
+        </dataobject>
+        <dataobject javaType="googleMap.leg" name="leg" supportsQuickData="false">
+            <element name="distance" typeRef="googleMap.distance" isList="false" allowNull="false"/>
+            <element name="duration" typeRef="googleMap.duration" isList="false" allowNull="false"/>
+            <element name="end_location" typeRef="googleMap.end_location" isList="false" allowNull="false"/>
+            <element name="start_address" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="end_address" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="start_location" typeRef="googleMap.start_location" isList="false" allowNull="false"/>
+            <element name="step" typeRef="googleMap.stepEntryItem" isList="true" allowNull="false"/>
+        </dataobject>
+        <dataobject javaType="googleMap.end_location" name="end_location" supportsQuickData="false">
+            <element name="lng" typeRef="java.lang.Double" isList="false" allowNull="false"/>
+            <element name="lat" typeRef="java.lang.Double" isList="false" allowNull="false"/>
+        </dataobject>
+        <dataobject javaType="googleMap.northeast" name="northeast" supportsQuickData="false">
+            <element name="lng" typeRef="java.lang.Double" isList="false" allowNull="false"/>
+            <element name="lat" typeRef="java.lang.Double" isList="false" allowNull="false"/>
+        </dataobject>
+        <dataobject javaType="googleMap.polyline" name="polyline" supportsQuickData="false">
+            <element name="points" typeRef="java.lang.String" isList="false" allowNull="false"/>
+        </dataobject>
+        <dataobject javaType="googleMap.geocoded_waypointEntryItem" name="geocoded_waypointEntryItem" supportsQuickData="false">
+            <element name="place_id" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="geocoder_status" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="type" typeRef="java.lang.String" isList="true" allowNull="false"/>
+        </dataobject>
+        <dataobject javaType="googleMap.stepEntryItem" name="stepEntryItem" supportsQuickData="false">
+            <element name="distance" typeRef="googleMap.distance" isList="false" allowNull="false"/>
+            <element name="html_instructions" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="duration" typeRef="googleMap.duration" isList="false" allowNull="false"/>
+            <element name="end_location" typeRef="googleMap.end_location" isList="false" allowNull="false"/>
+            <element name="polyline" typeRef="googleMap.polyline" isList="false" allowNull="false"/>
+            <element name="start_location" typeRef="googleMap.start_location" isList="false" allowNull="false"/>
+            <element name="maneuver" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="travel_mode" typeRef="java.lang.String" isList="false" allowNull="false"/>
+        </dataobject>
+        <dataobject javaType="googleMap.duration" name="duration" supportsQuickData="false">
+            <element name="text" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="value" typeRef="java.lang.Integer" isList="false" allowNull="false"/>
+        </dataobject>
+        <dataobject javaType="googleMap.route" name="route" supportsQuickData="false">
+            <element name="bounds" typeRef="googleMap.bounds" isList="false" allowNull="false"/>
+            <element name="summary" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="leg" typeRef="googleMap.leg" isList="false" allowNull="false"/>
+            <element name="copyrights" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="overview_polyline" typeRef="googleMap.overview_polyline" isList="false" allowNull="false"/>
+        </dataobject>
+        <dataobject javaType="googleMap.overview_polyline" name="overview_polyline" supportsQuickData="false">
+            <element name="points" typeRef="java.lang.String" isList="false" allowNull="false"/>
+        </dataobject>
+        <dataobject javaType="googleMap.start_location" name="start_location" supportsQuickData="false">
+            <element name="lng" typeRef="java.lang.Double" isList="false" allowNull="false"/>
+            <element name="lat" typeRef="java.lang.Double" isList="false" allowNull="false"/>
+        </dataobject>
+        <dataobject javaType="googleMap.bounds" name="bounds" supportsQuickData="false">
+            <element name="southwest" typeRef="googleMap.southwest" isList="false" allowNull="false"/>
+            <element name="northeast" typeRef="googleMap.northeast" isList="false" allowNull="false"/>
+        </dataobject>
+        <dataobject javaType="googleMap.southwest" name="southwest" supportsQuickData="false">
+            <element name="lng" typeRef="java.lang.Double" isList="false" allowNull="false"/>
+            <element name="lat" typeRef="java.lang.Double" isList="false" allowNull="false"/>
+        </dataobject>
+    </dataobjects>
+</service>

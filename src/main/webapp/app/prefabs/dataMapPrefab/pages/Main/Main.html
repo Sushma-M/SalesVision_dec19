@@ -1,0 +1,9 @@
+<wm-page data-ng-controller="DataMapPrefabController" name="DataMapPrefab"> 
+    <wm-container name="mapContainer" class="map-container"></wm-container> 
+    <wm-container name="mapActionContainer" class="map-action-buttons"> 
+        <wm-button name="zoomGlass" iconclass="glyphicon glyphicon-search" marginbottom="2" marginunit="em" on-click="zoomGlassClick($event, $scope)" class="btn-default" show="false"></wm-button> 
+        <wm-button name="zoomIn" iconclass="glyphicon glyphicon-plus" on-click="zoomInClick($event, $scope)" class="btn-default"></wm-button> 
+        <wm-button name="zoomOut" iconclass="glyphicon glyphicon-minus" on-click="zoomOutClick($event, $scope)" class="btn-default"></wm-button> 
+        <wm-button name="zoomHome" iconclass="glyphicon glyphicon-home" on-click="zoomHomeClick($event, $scope)" class="btn-default"></wm-button> 
+    </wm-container> 
+</wm-page>

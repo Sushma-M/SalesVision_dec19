@@ -1,0 +1,17 @@
+{
+    "LABEL_APPLICATION_NAME": "WaveMaker",
+    "LABEL_ACCESS_DENIED": "Access Denied",
+    "LABEL_INVALID_USERNAME_OR_PASSWORD": "Invalid username or password",
+    "LABEL_FORBIDDEN_MESSAGE": "The requested resource access/action is forbidden.",
+    "LABEL_HELP": "Help",
+    "LABEL_CLOSE": "Close",
+    "LABEL_EXPAND": "Expand",
+    "LABEL_COLLAPSE": "Collapse",
+    "LABEL_ACTIONS": "Actions",
+    "MESSAGE_LIVELIST_NO_DATA": "No data found",
+    "COMMENT_SERVICE_ERROR_MESSAGES":"-----------Service Error Message Resources----------",
+    "com.wavemaker.studio.json$UnexpectedError":"Unexpected error \"${0}\",please check server logs for more information",
+    "com.wavemaker.studio.json$UnrecognizedField":"Unrecognized field \"${0}\"",
+    "com.wavemaker.studio.json$InvalidJsonObject":"Incorrect Json Object \"${0}\"",
+    "com.wavemaker.studio.json$MessageNotReadable":"Message not readable"
+}

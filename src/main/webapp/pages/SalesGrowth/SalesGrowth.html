@@ -1,0 +1,54 @@
+<wm-page layouttype="two-column" columns="2" data-ng-controller="SalesGrowthPageController" name="page1"> 
+    <wm-header content="header" name="header1"></wm-header> 
+    <wm-top-nav content="topnav" name="top-nav1"></wm-top-nav> 
+    <wm-content name="content1"> 
+        <wm-row name="row1"> 
+            <wm-left-panel contentwidth="2" name="leftpanel" content="salesgrowthfilter"></wm-left-panel> 
+            <wm-column class="app-content-column" columnwidth="12" name="column1"> 
+                <wm-layoutgrid rows="2" columns="3" name="layoutgrid1"> 
+                    <wm-gridrow name="gridrow2" height="auto" margintop="1" marginbottom="2" marginunit="em"> 
+                        <wm-gridcolumn name="gridcolumn2" columnwidth="3" horizontalalign="center"> 
+                            <wm-panel name="panel1" class="tile-panel"> 
+                                <wm-picture name="picture1" picturesource="resources/images/imagelists/thumbs_up.png"></wm-picture> 
+                                <wm-label name="label1" width="100%" caption="Leads Generated" color="#F27221"></wm-label> 
+                                <wm-label name="label2" width="100%" caption="bind:Variables.leadsCount.dataSet.content[0].LEADSCOUNT"></wm-label> 
+                            </wm-panel> 
+                        </wm-gridcolumn> 
+                        <wm-gridcolumn name="gridcolumn3" columnwidth="3" horizontalalign="center"> 
+                            <wm-panel name="panel2" class="tile-panel"> 
+                                <wm-picture name="picture1" picturesource="resources/images/imagelists/bill.png"></wm-picture> 
+                                <wm-label name="label1" width="100%" caption="Quotes Generated" color="#F27221"></wm-label> 
+                                <wm-label name="label2" width="100%" caption="bind:Variables.salesRevenueAndCount.dataSet.content[0].TOTALSALES"></wm-label> 
+                            </wm-panel> 
+                        </wm-gridcolumn> 
+                        <wm-gridcolumn name="gridcolumn4" columnwidth="3" horizontalalign="center"> 
+                            <wm-panel name="panel3" class="tile-panel"> 
+                                <wm-picture name="picture1" picturesource="resources/images/imagelists/graph.png"></wm-picture> 
+                                <wm-label name="label1" width="100%" caption="Sales converted" color="#F27221"></wm-label> 
+                                <wm-label name="label2" width="100%" caption="bind:(Variables.salesRevenueAndCount.dataSet.content[0].SALESREVENUE | currency:'$ ')"></wm-label> 
+                            </wm-panel> 
+                        </wm-gridcolumn> 
+                        <wm-gridcolumn name="gridcolumn5" columnwidth="3" horizontalalign="center"> 
+                            <wm-panel name="panel4" class="tile-panel"> 
+                                <wm-picture name="picture1" picturesource="resources/images/imagelists/trophy.png"></wm-picture> 
+                                <wm-label name="label1" width="100%" caption="My Money Makers" color="#F27221"></wm-label> 
+                                <wm-label name="label2" width="100%" caption="bind:Variables.repsCount.dataSet.content[0].REPSCOUNT"></wm-label> 
+                            </wm-panel> 
+                        </wm-gridcolumn> 
+                    </wm-gridrow> 
+                    <wm-gridrow name="gridrow3" height="auto"> 
+                        <wm-gridcolumn name="gridcolumn8" columnwidth="12"> 
+                            <wm-label name="label1" width="100%" caption="Lead Generation"></wm-label> 
+                            <wm-chart type="Area" name="leadsByChannel" height="300" offsetbottom="40" offsetleft="50" offsettop="0" offsetright="20" yaxislabeldistance="40" dataset="bind:Variables.leadsByChannels.dataSet.content" xaxislabel="Week" xaxisdatakey="WEEK" yaxislabel="Leads" yaxisdatakey="LEADS" theme="Terrestrial"></wm-chart> 
+                        </wm-gridcolumn> 
+                    </wm-gridrow> 
+                </wm-layoutgrid> 
+                <wm-label name="label1" width="100%" caption="Sales Representatives" margintop="2" marginunit="em"></wm-label> 
+                <wm-grid name="grid1" scopedataset="Variables.salesByReps.dataSet.content" shownavigation="false" showrecordcount="false" height="360px" readonlygrid="false" insertrow="false" updaterow="false" deleterow="false" class="panel-default"> 
+                    <wm-grid-column caption="value" pcdisplay="true" mobiledisplay="true"></wm-grid-column> 
+                </wm-grid> 
+            </wm-column> 
+        </wm-row> 
+    </wm-content> 
+    <wm-footer content="footer" name="footer1"></wm-footer> 
+</wm-page>

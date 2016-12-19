@@ -1,0 +1,356 @@
+{
+  "name" : "salesdb",
+  "description" : "Queries for salesdb",
+  "queries" : [ {
+    "name" : "weeklyFollowUps",
+    "query" : "SELECT WEEK(entry_date)+1 AS Week, count(*) AS FollowUps\n            FROM follow_ups\n            WHERE YEAR(entry_date) =  :year\n            AND MONTH(entry_date) = :month\n            GROUP BY Week\n            ORDER BY Week",
+    "comment" : "returns the follow-ups made in a month",
+    "description" : null,
+    "nativeSql" : true,
+    "returnsSingleResult" : false,
+    "update" : false,
+    "queryParams" : [ {
+      "paramName" : "year",
+      "paramType" : "java.lang.Integer",
+      "testValue" : null,
+      "systemParamName" : null,
+      "systemParam" : false,
+      "list" : false
+    }, {
+      "paramName" : "month",
+      "paramType" : "java.lang.Integer",
+      "testValue" : null,
+      "systemParamName" : null,
+      "systemParam" : false,
+      "list" : false
+    } ],
+    "outputType" : null,
+    "returnTypeMetadata" : { }
+  }, {
+    "name" : "leadsCount",
+    "query" : "SELECT COUNT(*) as LeadsCount\n            FROM   leads l, quotes q, reps r\n            WHERE q.lead_id = l.id and q.rep_id = r.id and r.channel_type = :channel",
+    "comment" : "returns the count of leads taken over by sales reps in each channel",
+    "description" : null,
+    "nativeSql" : true,
+    "returnsSingleResult" : false,
+    "update" : false,
+    "queryParams" : [ {
+      "paramName" : "channel",
+      "paramType" : "java.lang.Integer",
+      "testValue" : null,
+      "systemParamName" : null,
+      "systemParam" : false,
+      "list" : false
+    } ],
+    "outputType" : null,
+    "returnTypeMetadata" : { }
+  }, {
+    "name" : "repsCount",
+    "query" : "SELECT COUNT(*) as RepsCount\n            FROM  reps r\n            WHERE r.channel_type = :channel",
+    "comment" : "returns the count of sales reps in each channel",
+    "description" : null,
+    "nativeSql" : true,
+    "returnsSingleResult" : false,
+    "update" : false,
+    "queryParams" : [ {
+      "paramName" : "channel",
+      "paramType" : "java.lang.Integer",
+      "testValue" : null,
+      "systemParamName" : null,
+      "systemParam" : false,
+      "list" : false
+    } ],
+    "outputType" : null,
+    "returnTypeMetadata" : { }
+  }, {
+    "name" : "salesRevenueAndCount",
+    "query" : "SELECT SUM(sales) as SalesRevenue, COUNT(sales) as TotalSales\nFROM sales s,  quotes q, reps r \nWHERE s.quote_id = q.id and q.rep_id = r.id and r.channel_type = :channel",
+    "comment" : "returns the total sales revenue generated & count of sales made per each category of sales reps",
+    "description" : null,
+    "nativeSql" : true,
+    "returnsSingleResult" : false,
+    "update" : false,
+    "queryParams" : [ {
+      "paramName" : "channel",
+      "paramType" : "java.lang.Integer",
+      "testValue" : null,
+      "systemParamName" : null,
+      "systemParam" : false,
+      "list" : false
+    } ],
+    "outputType" : null,
+    "returnTypeMetadata" : { }
+  }, {
+    "name" : "topTrendingProducts",
+    "query" : "SELECT p.name as Product, s.sales as Sales\n            FROM Products p, Sales s\n            WHERE p.id = s.product_id\n            AND YEAR(s.entry_date) =  :year\n            AND MONTH(s.entry_date) = :month\n            ORDER BY Sales DESC",
+    "comment" : "returns the top trending products of the week",
+    "description" : null,
+    "nativeSql" : true,
+    "returnsSingleResult" : false,
+    "update" : false,
+    "queryParams" : [ {
+      "paramName" : "year",
+      "paramType" : "java.lang.Integer",
+      "testValue" : null,
+      "systemParamName" : null,
+      "systemParam" : false,
+      "list" : false
+    }, {
+      "paramName" : "month",
+      "paramType" : "java.lang.Integer",
+      "testValue" : null,
+      "systemParamName" : null,
+      "systemParam" : false,
+      "list" : false
+    } ],
+    "outputType" : null,
+    "returnTypeMetadata" : { }
+  }, {
+    "name" : "salesByReps",
+    "query" : "select r.name Name, count(q.lead_id) Leads, sum(s.sales) Sales\n            FROM leads l\n            JOIN quotes q on q.lead_id = l.id\n            JOIN sales s on s.quote_id = q.id\n            RIGHT OUTER JOIN reps r on r.id = q.rep_id\n            WHERE r.channel_type = :channel\n            GROUP BY Name\n            ORDER BY Sales desc, Leads desc",
+    "comment" : "returns the revenue generated per each category of sales representatives",
+    "description" : null,
+    "nativeSql" : true,
+    "returnsSingleResult" : false,
+    "update" : false,
+    "queryParams" : [ {
+      "paramName" : "channel",
+      "paramType" : "java.lang.Integer",
+      "testValue" : null,
+      "systemParamName" : null,
+      "systemParam" : false,
+      "list" : false
+    } ],
+    "outputType" : null,
+    "returnTypeMetadata" : { }
+  }, {
+    "name" : "salesByChannels",
+    "query" : "select c.name Channel, ROUND(sum(s.sales)*100/(SELECT sum(sales) FROM sales)) Percent\n            FROM sales s\n            inner join quotes q on q.id = s.quote_id\n            inner join reps r on r.id = q.rep_id\n            right outer join channels c on r.channel_type = c.id\n            WHERE YEAR(s.entry_date) =  :year\n            AND MONTH(s.entry_date) = :month\n            group by Channel",
+    "comment" : "returns the sales converted per each channel",
+    "description" : null,
+    "nativeSql" : true,
+    "returnsSingleResult" : false,
+    "update" : false,
+    "queryParams" : [ {
+      "paramName" : "year",
+      "paramType" : "java.lang.Integer",
+      "testValue" : null,
+      "systemParamName" : null,
+      "systemParam" : false,
+      "list" : false
+    }, {
+      "paramName" : "month",
+      "paramType" : "java.lang.Integer",
+      "testValue" : null,
+      "systemParamName" : null,
+      "systemParam" : false,
+      "list" : false
+    } ],
+    "outputType" : null,
+    "returnTypeMetadata" : { }
+  }, {
+    "name" : "weeklyConverted",
+    "query" : "SELECT WEEK(entry_date)+1 AS Week, count(*) AS Sales\n            FROM sales\n            WHERE YEAR(entry_date) =  :year\n            AND MONTH(entry_date) = :month\n            GROUP BY Week\n            ORDER BY Week",
+    "comment" : "returns the sales converted per each week",
+    "description" : null,
+    "nativeSql" : true,
+    "returnsSingleResult" : false,
+    "update" : false,
+    "queryParams" : [ {
+      "paramName" : "year",
+      "paramType" : "java.lang.Integer",
+      "testValue" : null,
+      "systemParamName" : null,
+      "systemParam" : false,
+      "list" : false
+    }, {
+      "paramName" : "month",
+      "paramType" : "java.lang.Integer",
+      "testValue" : null,
+      "systemParamName" : null,
+      "systemParam" : false,
+      "list" : false
+    } ],
+    "outputType" : null,
+    "returnTypeMetadata" : { }
+  }, {
+    "name" : "revenueHeatMap",
+    "query" : "SELECT usa.name State, sum(s.sales) Sales, count(c.id) Customers, count(l.id) Leads, count(q.id) Quotes\n            FROM sales s\n            JOIN quotes q ON q.id = s.quote_id\n            JOIN leads l ON q.lead_id = l.id\n            JOIN customers c ON l.customer_id = c.id\n            JOIN states usa ON usa.id = c.state_id\n            AND YEAR(s.entry_date) =  :year\n            AND MONTH(s.entry_date) = :month\n            GROUP BY State",
+    "comment" : "returns the revenue generated in each state in a month",
+    "description" : null,
+    "nativeSql" : true,
+    "returnsSingleResult" : false,
+    "update" : false,
+    "queryParams" : [ {
+      "paramName" : "year",
+      "paramType" : "java.lang.Integer",
+      "testValue" : null,
+      "systemParamName" : null,
+      "systemParam" : false,
+      "list" : false
+    }, {
+      "paramName" : "month",
+      "paramType" : "java.lang.Integer",
+      "testValue" : null,
+      "systemParamName" : null,
+      "systemParam" : false,
+      "list" : false
+    } ],
+    "outputType" : null,
+    "returnTypeMetadata" : { }
+  }, {
+    "name" : "customersRatio",
+    "query" : "SELECT\n            CASE\n            WHEN is_renewal = TRUE THEN 'Renewal'\n            ELSE 'New'\n            END Type,\n            COUNT(*) Percent\n            FROM SALES\n            WHERE MONTH(entry_date) = 1 and year(entry_date) = 2014\n            GROUP BY Type",
+    "comment" : "returns the leads made per each category of sales reps",
+    "description" : null,
+    "nativeSql" : true,
+    "returnsSingleResult" : false,
+    "update" : false,
+    "queryParams" : [ {
+      "paramName" : "year",
+      "paramType" : "java.lang.Integer",
+      "testValue" : null,
+      "systemParamName" : null,
+      "systemParam" : false,
+      "list" : false
+    }, {
+      "paramName" : "month",
+      "paramType" : "java.lang.Integer",
+      "testValue" : null,
+      "systemParamName" : null,
+      "systemParam" : false,
+      "list" : false
+    } ],
+    "outputType" : null,
+    "returnTypeMetadata" : { }
+  }, {
+    "name" : "leadsByChannel",
+    "query" : "SELECT WEEK(q.entry_date)+1 AS Week, count(*) AS Leads\n            FROM quotes q join reps r on q.rep_id = r.id\n            WHERE r.channel_type = :channel\n            GROUP BY Week\n            ORDER BY Week",
+    "comment" : "returns the leads made per each category of sales reps",
+    "description" : null,
+    "nativeSql" : true,
+    "returnsSingleResult" : false,
+    "update" : false,
+    "queryParams" : [ {
+      "paramName" : "channel",
+      "paramType" : "java.lang.Integer",
+      "testValue" : null,
+      "systemParamName" : null,
+      "systemParam" : false,
+      "list" : false
+    } ],
+    "outputType" : null,
+    "returnTypeMetadata" : { }
+  }, {
+    "name" : "salesByEachRep",
+    "query" : "SELECT MONTHNAME(s.entry_date) AS MONTHNAME, count(*) AS SALES\n            FROM quotes q join reps r on q.rep_id = r.id\n            join sales s on s.quote_id =q.id\n            WHERE r.id =:id AND YEAR(s.entry_date) = YEAR(CURDATE())\n            GROUP BY MONTHNAME",
+    "comment" : "returns the sales made by each representative",
+    "description" : null,
+    "nativeSql" : true,
+    "returnsSingleResult" : false,
+    "update" : false,
+    "queryParams" : [ {
+      "paramName" : "id",
+      "paramType" : "java.lang.Integer",
+      "testValue" : null,
+      "systemParamName" : null,
+      "systemParam" : false,
+      "list" : false
+    } ],
+    "outputType" : null,
+    "returnTypeMetadata" : { }
+  }, {
+    "name" : "eachRepCustomerWiseSales",
+    "query" : "select c.name as CUSTOMER, sum(s.sales) as SALES from\n            quotes q join leads l on q.lead_id =l.id\n            join customers c on c.id = l.customer_id\n            join sales s on s.quote_id = q.id\n            where  q.rep_id = :id\n            group by c.id",
+    "comment" : "returns each Representative Customer Vs Sales",
+    "description" : null,
+    "nativeSql" : true,
+    "returnsSingleResult" : false,
+    "update" : false,
+    "queryParams" : [ {
+      "paramName" : "id",
+      "paramType" : "java.lang.Integer",
+      "testValue" : null,
+      "systemParamName" : null,
+      "systemParam" : false,
+      "list" : false
+    } ],
+    "outputType" : null,
+    "returnTypeMetadata" : { }
+  }, {
+    "name" : "weeklySales",
+    "query" : "SELECT WEEK(s.entry_date)+1 AS Week, sum(s.sales) AS Sales\n            FROM sales s\n            WHERE YEAR(s.entry_date) =  :year\n            AND MONTH(s.entry_date) = :month\n            GROUP BY Week\n            ORDER BY Week",
+    "comment" : "returns the sales generated per each week",
+    "description" : null,
+    "nativeSql" : true,
+    "returnsSingleResult" : false,
+    "update" : false,
+    "queryParams" : [ {
+      "paramName" : "year",
+      "paramType" : "java.lang.Integer",
+      "testValue" : null,
+      "systemParamName" : null,
+      "systemParam" : false,
+      "list" : false
+    }, {
+      "paramName" : "month",
+      "paramType" : "java.lang.Integer",
+      "testValue" : null,
+      "systemParamName" : null,
+      "systemParam" : false,
+      "list" : false
+    } ],
+    "outputType" : null,
+    "returnTypeMetadata" : { }
+  }, {
+    "name" : "weeklyQuotes",
+    "query" : "SELECT WEEK(entry_date)+1 AS Week, count(*) AS Quotes\n            FROM quotes\n            WHERE YEAR(entry_date) =  :year\n            AND MONTH(entry_date) = :month\n            GROUP BY Week\n            ORDER BY Week",
+    "comment" : "returns the quotes made in a month per each week",
+    "description" : null,
+    "nativeSql" : true,
+    "returnsSingleResult" : false,
+    "update" : false,
+    "queryParams" : [ {
+      "paramName" : "year",
+      "paramType" : "java.lang.Integer",
+      "testValue" : null,
+      "systemParamName" : null,
+      "systemParam" : false,
+      "list" : false
+    }, {
+      "paramName" : "month",
+      "paramType" : "java.lang.Integer",
+      "testValue" : null,
+      "systemParamName" : null,
+      "systemParam" : false,
+      "list" : false
+    } ],
+    "outputType" : null,
+    "returnTypeMetadata" : { }
+  }, {
+    "name" : "weeklyLeads",
+    "query" : "SELECT WEEK(entry_date)+1 AS Week, count(*) AS Leads\n            FROM leads\n            WHERE YEAR(entry_date) =  :year\n            AND MONTH(entry_date) = :month\n            GROUP BY Week\n            ORDER BY Week",
+    "comment" : "returns the leads created per each week",
+    "description" : null,
+    "nativeSql" : true,
+    "returnsSingleResult" : false,
+    "update" : false,
+    "queryParams" : [ {
+      "paramName" : "year",
+      "paramType" : "java.lang.Integer",
+      "testValue" : null,
+      "systemParamName" : null,
+      "systemParam" : false,
+      "list" : false
+    }, {
+      "paramName" : "month",
+      "paramType" : "java.lang.Integer",
+      "testValue" : null,
+      "systemParamName" : null,
+      "systemParam" : false,
+      "list" : false
+    } ],
+    "outputType" : null,
+    "returnTypeMetadata" : { }
+  } ]
+}
